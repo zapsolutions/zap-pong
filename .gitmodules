@@ -1,0 +1,6 @@
+[submodule "lib"]
+	path = lib
+	url = https://github.com/cakephp/cakephp.git
+[submodule "app/Plugin/Upload"]
+	path = app/Plugin/Upload
+	url = https://github.com/josegonzalez/upload.git
