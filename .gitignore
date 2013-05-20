@@ -1,0 +1,16 @@
+/app/Config/database.php
+/app/Config/core.php
+/app/tmp
+/plugins
+/vendors
+/build
+/dist
+/tags
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
