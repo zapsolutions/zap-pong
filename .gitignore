@@ -1,5 +1,6 @@
 /app/Config/database.php
 /app/Config/core.php
+/app/webroot/files
 /app/tmp
 /plugins
 /vendors
