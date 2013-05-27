@@ -4,3 +4,6 @@
 [submodule "app/Plugin/Upload"]
 	path = app/Plugin/Upload
 	url = https://github.com/josegonzalez/upload.git
+[submodule "app/Plugin/TwitterBootstrap"]
+	path = app/Plugin/TwitterBootstrap
+	url = git://github.com/slywalker/TwitterBootstrap.git
