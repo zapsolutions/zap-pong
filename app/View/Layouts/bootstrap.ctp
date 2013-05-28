@@ -41,13 +41,13 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+			<h1><?php echo 'ZAP Pong'; // $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
 		</div>
 		<div id="content">
-
+			<div class="container">
 			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
+			</div>
 		</div>
 		<div id="footer">
 			<?php echo $this->Html->link(
