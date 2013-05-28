@@ -24,6 +24,8 @@ App::uses('AuthComponent', 'Controller/Component');
  */
 
 	Router::connect('/', array('controller' => 'boards', 'action' => 'all'));
+	Router::connect('/login', array('controller' => 'sessions', 'action' => 'login'));
+    Router::connect('/logout', array('controller' => 'sessions', 'action' => 'logout'));
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 	if (AuthComponent::user()) {
 		// authenticated routes

@@ -40,4 +40,25 @@ class AppController extends Controller
         'Form' => array('className' => 'TwitterBootstrap.BootstrapForm'),
         'Paginator' => array('className' => 'TwitterBootstrap.BootstrapPaginator'),
     );
+    public $components = array(
+        'Session',
+        'Auth' => array(
+            'loginRedirect'  => '/',
+            'logoutRedirect' => '/',
+            'authorize'      => array('Controller'),
+            'authError'      => 'You need to be logged in to view this page.',
+            'authenticate'   => array(
+                'Blowfish'   => array(
+                    'fields' => array('username' => 'email'),
+                    //'scope'  => array('User.active' => 1)
+                )
+            )
+        )
+    );
+
+    public function isAuthorized($user) 
+    {
+         return false;
+    }
+    
 }

@@ -14,18 +14,8 @@
 					'helpInline' => '<span class="label label-important">' . __('Required') . '</span>&nbsp;')
 				);
 				echo $this->BootstrapForm->input('alias');
-				echo $this->BootstrapForm->input('rating');
-				echo $this->BootstrapForm->input('wins');
-				echo $this->BootstrapForm->input('losess');
-				echo $this->BootstrapForm->input('sinks');
-				echo $this->BootstrapForm->input('hits');
-				echo $this->BootstrapForm->input('tks');
-				echo $this->BootstrapForm->input('action');
-				echo $this->BootstrapForm->input('decay');
 				echo $this->BootstrapForm->input('avatar');
 				echo $this->BootstrapForm->input('avatar_dir');
-				echo $this->BootstrapForm->input('role');
-				echo $this->BootstrapForm->input('active');
 				?>
 				<?php echo $this->BootstrapForm->submit(__('Submit'));?>
 			</fieldset>

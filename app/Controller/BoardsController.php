@@ -54,6 +54,7 @@ class BoardsController extends AppController
 		));
 
 		// Recent games played
+		$this->Game->recursive = 2;
 		$games = $this->Game->find('all', array(
 			'order' => array(
 				'Game.created DESC'

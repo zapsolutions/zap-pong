@@ -72,4 +72,19 @@ class User extends AppModel
         )
     );
 
+/**
+ * beforeSave Model Callback
+ * @param array $options
+ * @return bool
+ */
+    public function beforeSave($options = array())
+    {
+        // If the record contains a password field, hash it.
+        if (isset($this->data['User']['password'])) {
+            $hash = Security::hash($this->data['User']['password'], 'blowfish');
+            $this->data['User']['password'] = $hash;
+        }
+        return true;
+    }
+
 }

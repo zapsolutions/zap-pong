@@ -8,83 +8,32 @@ App::uses('AppController', 'Controller');
 class GamesController extends AppController
 {
 
-/**
- * index method
- *
- * @return void
- */
-	public function index() {
-		$this->Game->recursive = 0;
-		$this->set('games', $this->paginate());
+	public $uses = array('Game', 'User');
+
+	public function beforeFilter()
+	{
+		parent::beforeFilter();
+		$this->Auth->allow(array('add', 'view'));
 	}
 
 /**
- * view method
- *
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		$this->Game->id = $id;
-		if (!$this->Game->exists()) {
-			throw new NotFoundException(__('Invalid %s', __('game')));
-		}
-		$this->set('game', $this->Game->read(null, $id));
-	}
-
-/**
- * add method
+ * new method
  *
  * @return void
  */
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Game->create();
-			if ($this->Game->save($this->request->data)) {
+			if ($this->Game->saveAll($this->request->data)) {
 				$this->Session->setFlash(
-					__('The %s has been saved', __('game')),
+					__('The %s has been saved!', __('game')),
 					'alert',
 					array(
 						'plugin' => 'TwitterBootstrap',
 						'class' => 'alert-success'
 					)
 				);
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(
-					__('The %s could not be saved. Please, try again.', __('game')),
-					'alert',
-					array(
-						'plugin' => 'TwitterBootstrap',
-						'class' => 'alert-error'
-					)
-				);
-			}
-		}
-	}
-
-/**
- * edit method
- *
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		$this->Game->id = $id;
-		if (!$this->Game->exists()) {
-			throw new NotFoundException(__('Invalid %s', __('game')));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Game->save($this->request->data)) {
-				$this->Session->setFlash(
-					__('The %s has been saved', __('game')),
-					'alert',
-					array(
-						'plugin' => 'TwitterBootstrap',
-						'class' => 'alert-success'
-					)
-				);
-				$this->redirect(array('action' => 'index'));
+				$this->redirect('/');
 			} else {
 				$this->Session->setFlash(
 					__('The %s could not be saved. Please, try again.', __('game')),
@@ -96,43 +45,20 @@ class GamesController extends AppController
 				);
 			}
 		} else {
-			$this->request->data = $this->Game->read(null, $id);
+			$users = $this->User->find('list', array(
+				'fields' => array('name')
+			));
+			$this->set(compact('users'));
 		}
 	}
 
-/**
- * delete method
- *
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
-		if (!$this->request->is('post')) {
-			throw new MethodNotAllowedException();
-		}
-		$this->Game->id = $id;
-		if (!$this->Game->exists()) {
-			throw new NotFoundException(__('Invalid %s', __('game')));
-		}
-		if ($this->Game->delete()) {
-			$this->Session->setFlash(
-				__('The %s deleted', __('game')),
-				'alert',
-				array(
-					'plugin' => 'TwitterBootstrap',
-					'class' => 'alert-success'
-				)
-			);
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Session->setFlash(
-			__('The %s was not deleted', __('game')),
-			'alert',
-			array(
-				'plugin' => 'TwitterBootstrap',
-				'class' => 'alert-error'
-			)
-		);
-		$this->redirect(array('action' => 'index'));
+	private function __updateStats($players = array())
+	{
+
 	}
+	private function __updateRatings($players = array())
+	{
+		
+	}
+
 }
