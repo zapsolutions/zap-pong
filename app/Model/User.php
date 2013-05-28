@@ -5,7 +5,8 @@ App::uses('AppModel', 'Model');
  *
  * @property Player $Player
  */
-class User extends AppModel {
+class User extends AppModel
+{
 
 /**
  * Validation rules
@@ -35,8 +36,6 @@ class User extends AppModel {
 		),
 	);
 
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
 /**
  * hasMany associations
  *
@@ -57,5 +56,20 @@ class User extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+
+/**
+ * Upload behavior
+ *
+ * @var array
+ */
+	public $actsAs = array(
+        'Upload.Upload' => array(
+            'photo' => array(
+                'fields' => array(
+                    'dir' => 'photo_dir'
+                )
+            )
+        )
+    );
 
 }

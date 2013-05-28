@@ -6,7 +6,8 @@ App::uses('AppModel', 'Model');
  * @property User $User
  * @property Game $Game
  */
-class Player extends AppModel {
+class Player extends AppModel
+{
 
 /**
  * Validation rules
@@ -35,8 +36,6 @@ class Player extends AppModel {
 			),
 		),
 	);
-
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
  * belongsTo associations

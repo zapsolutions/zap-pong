@@ -23,7 +23,7 @@ App::uses('AuthComponent', 'Controller/Component');
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+	Router::connect('/', array('controller' => 'boards', 'action' => 'all'));
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 	if (AuthComponent::user()) {
 		// authenticated routes

@@ -5,27 +5,9 @@ App::uses('AppController', 'Controller');
  *
  * @property Player $Player
  */
-class PlayersController extends AppController {
+class PlayersController extends AppController
+{
 
-/**
- *  Layout
- *
- * @var string
- */
-	public $layout = 'bootstrap';
-
-/**
- * Helpers
- *
- * @var array
- */
-	public $helpers = array('TwitterBootstrap.BootstrapHtml', 'TwitterBootstrap.BootstrapForm', 'TwitterBootstrap.BootstrapPaginator');
-/**
- * Components
- *
- * @var array
- */
-	public $components = array('Session');
 /**
  * index method
  *
