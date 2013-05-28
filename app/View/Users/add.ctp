@@ -1,6 +1,6 @@
 <div class="row-fluid">
 	<div class="span9">
-		<?php echo $this->BootstrapForm->create('User', array('class' => 'form-horizontal'));?>
+		<?php echo $this->BootstrapForm->create('User', array('class' => 'form-horizontal', 'type' => 'file'));?>
 			<fieldset>
 				<legend><?php echo __('Add %s', __('User')); ?></legend>
 				<?php
@@ -14,8 +14,8 @@
 					'helpInline' => '<span class="label label-important">' . __('Required') . '</span>&nbsp;')
 				);
 				echo $this->BootstrapForm->input('alias');
-				echo $this->BootstrapForm->input('avatar');
-				echo $this->BootstrapForm->input('avatar_dir');
+				echo $this->BootstrapForm->input('avatar', array('type' => 'file'));
+				echo $this->BootstrapForm->input('avatar_dir', array('type' => 'hidden'));
 				?>
 				<?php echo $this->BootstrapForm->submit(__('Submit'));?>
 			</fieldset>

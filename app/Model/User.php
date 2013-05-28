@@ -64,10 +64,10 @@ class User extends AppModel
  */
 	public $actsAs = array(
         'Upload.Upload' => array(
-            'photo' => array(
+            'avatar' => array(
                 'fields' => array(
-                    'dir' => 'photo_dir'
-                )
+                    'dir' => 'avatar_dir'
+                ),
             )
         )
     );

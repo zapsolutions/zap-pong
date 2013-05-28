@@ -1,6 +1,6 @@
 <div class="row-fluid">
 	<div class="span9">
-		<?php echo $this->BootstrapForm->create('Game', array('class' => 'form-horizontal'));?>
+		<?php echo $this->BootstrapForm->create('Game', array('class' => 'form-horizontal', 'type' => 'file')); ?>
 			<fieldset>
 				<legend><?php echo __('Add %s', __('Game')); ?></legend>
 				<?php
