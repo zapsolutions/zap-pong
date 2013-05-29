@@ -7,3 +7,6 @@
 [submodule "app/Plugin/TwitterBootstrap"]
 	path = app/Plugin/TwitterBootstrap
 	url = git://github.com/slywalker/TwitterBootstrap.git
+[submodule "app/Plugin/Tags"]
+	path = app/Plugin/Tags
+	url = git://github.com/CakeDC/tags.git
