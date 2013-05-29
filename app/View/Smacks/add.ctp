@@ -5,7 +5,7 @@
 				<legend><?php echo __('Add %s', __('Smack')); ?></legend>
 				<?php
 				echo $this->BootstrapForm->input('message');
-				echo $this->BootstrapForm->input('users_id', array(
+				echo $this->BootstrapForm->input('user_id', array(
 					'required' => 'required',
 					'helpInline' => '<span class="label label-important">' . __('Required') . '</span>&nbsp;')
 				);

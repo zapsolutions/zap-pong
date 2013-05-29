@@ -43,6 +43,7 @@ class AppController extends Controller
     public $components = array(
         'Session',
         'Auth' => array(
+            'loginAction'    => array('controller' => 'sessions', 'action' => 'login'),
             'loginRedirect'  => '/',
             'logoutRedirect' => '/',
             'authorize'      => array('Controller'),
@@ -58,7 +59,7 @@ class AppController extends Controller
 
     public function isAuthorized($user) 
     {
-         return true;
+        return true;
     }
     
 }

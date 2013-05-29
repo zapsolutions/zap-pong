@@ -8,25 +8,6 @@ App::uses('AppController', 'Controller');
 class SmacksController extends AppController {
 
 /**
- *  Layout
- *
- * @var string
- */
-	public $layout = 'bootstrap';
-
-/**
- * Helpers
- *
- * @var array
- */
-	public $helpers = array('TwitterBootstrap.BootstrapHtml', 'TwitterBootstrap.BootstrapForm', 'TwitterBootstrap.BootstrapPaginator');
-/**
- * Components
- *
- * @var array
- */
-	public $components = array('Session');
-/**
  * index method
  *
  * @return void

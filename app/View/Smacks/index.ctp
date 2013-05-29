@@ -10,7 +10,7 @@
 			<tr>
 				<th><?php echo $this->BootstrapPaginator->sort('id');?></th>
 				<th><?php echo $this->BootstrapPaginator->sort('message');?></th>
-				<th><?php echo $this->BootstrapPaginator->sort('users_id');?></th>
+				<th><?php echo $this->BootstrapPaginator->sort('user_id');?></th>
 				<th class="actions"><?php echo __('Actions');?></th>
 			</tr>
 		<?php foreach ($smacks as $smack): ?>
