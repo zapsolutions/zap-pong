@@ -41,13 +41,15 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 </head>
 <body>
 	<div id="container">
-		<div id="header">
-			<h1><?php echo 'ZAP Pong'; // $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>
 		<div id="content">
 			<div class="container">
-			<?php echo $this->Session->flash(); ?>
-			<?php echo $this->fetch('content'); ?>
+				<div class="row-fluid">
+					<div class="span12">
+						<img src="/img/zap.png" />
+					</div>
+				</div>
+				<?php echo $this->Session->flash(); ?>
+				<?php echo $this->fetch('content'); ?>
 			</div>
 		</div>
 		<div id="footer">
@@ -59,6 +61,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			?>
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>

@@ -41,7 +41,7 @@ class Smack extends AppModel {
 	);
 
 	public $actsAs = array(
-        'Tags.Tags' => array()
+        'Tags.Taggable' => array()
     );
 
 }

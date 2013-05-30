@@ -21,6 +21,18 @@ div.input-space {
 .dash-box {
 	border: 1px solid #d5d5d5;
 	background-color: #fff;
+	height: 340px;
+	-moz-border-radius: 3px;
+ 	-webkit-border-radius: 3px;
+ 	border-radius: 3px;
+}
+
+.smack-box {
+	border: 1px solid #d5d5d5;
+	background-color: #fff;
+	-moz-border-radius: 3px;
+ 	-webkit-border-radius: 3px;
+ 	border-radius: 3px;
 }
 
 #UserDashboardForm span.add-on {
@@ -33,10 +45,46 @@ div.input-space {
 	text-transform: uppercase;
 }
 
+#dash-card {
+	text-align: center;
+}
+
 #dash-card h3, #dash-card h4 {
 	margin: 0;
 }
 
 div.span-padding {
-	padding: 20px;
+	padding: 10px 20px 0px 20px;
+}
+
+#UserDashboardForm button[type="submit"],
+#GameDashboardForm button[type="submit"],
+#SmackDashboardForm button[type="submit"] {
+	width: 100%;
+	vertical-align: bottom;
+}
+
+#GameDashboardForm button[type="submit"] {
+	margin-top: 10px;
+}
+
+#UserDashboardForm button[type="submit"] {
+	margin-top: 25px;
+}
+
+#SmackDashboardForm button[type="submit"] {
+	margin-top: 20px;
+}
+
+#container {
+	background: url('/img/glow.png') 50% 0 no-repeat;
+	padding-top: 20px;
+}
+
+.container {
+	max-width: 1024px;
+}
+
+#smack-row {
+	margin-top: 15px;
 }
