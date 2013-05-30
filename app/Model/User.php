@@ -80,7 +80,7 @@ class User extends AppModel
             'avatar' => array(
                 'fields' => array('dir' => 'avatar_dir'),
                 'thumbnailSizes' => array(
-                	'thumb' => '[80x80]',
+                	'thumb' => '[50x50]',
                 	'profile' => '[200x200]'
                 )
             )

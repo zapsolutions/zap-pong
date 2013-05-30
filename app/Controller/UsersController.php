@@ -15,6 +15,26 @@ class UsersController extends AppController
 	}
 
 /**
+ * profile method
+ *
+ * @return void
+ */
+	public function dashboard()
+	{
+		$data = $this->User->find('first', array(
+				'conditions' => array(
+					'User.id' => $this->Auth->user('id')
+				)
+			));
+		$this->request->data = $data;
+		$users = $this->User->find('list', array(
+			'fields' => array('User.name')
+		));
+		$this->set('user', $data);
+		$this->set(compact('users'));
+	}
+
+/**
  * add method
  *
  * @return void
@@ -63,7 +83,7 @@ class UsersController extends AppController
 						'class' => 'alert-success'
 					)
 				);
-				$this->redirect(array('action' => 'edit'));
+				$this->redirect(array('action' => 'dashboard'));
 			} else {
 				$this->Session->setFlash(
 					'Something went wrong with updating your account info!',
@@ -73,16 +93,9 @@ class UsersController extends AppController
 						'class' => 'alert-error'
 					)
 				);
+				$this->redirect(array('action' => 'dashboard'));
 			}
-		} else {
-			$data = $this->User->find('first', array(
-				'conditions' => array(
-					'User.id' => $this->Auth->user('id')
-				)
-			));
-			$this->request->data = $data;
-			$this->set('user', $data);
-		}
+		} 
 	}
 
 }

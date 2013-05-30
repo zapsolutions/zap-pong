@@ -1,7 +1,11 @@
 <div class="row-fluid">
 	<div class="span4">
 		<?php
-		echo "<img src=\"/files/user/avatar/{$user['User']['id']}/profile_{$user['User']['avatar']}\" class=\"img-polaroid\" />";
+		if (!empty($user['User']['avatar'])) {
+			echo "<img src=\"/files/user/avatar/{$user['User']['id']}/profile_{$user['User']['avatar']}\" class=\"img-polaroid\" />";
+		} else {
+			echo '<img src="/img/anon.gif" class="img-polaroid" />';
+		}
 		?>
 		<br/>
 		<h3><?php echo $user['User']['name']; ?></h3>
