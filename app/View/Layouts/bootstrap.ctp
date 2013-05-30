@@ -43,7 +43,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<div id="container">
 		<div id="content">
 			<div class="container">
-				<div class="row-fluid">
+				<div id="header-row" class="row-fluid">
 					<div class="span12">
 						<img src="/img/zap.png" />
 					</div>

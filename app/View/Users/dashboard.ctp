@@ -1,4 +1,4 @@
-<div class="row-fluid">
+<div id="dash-row" class="row-fluid">
 	<div id="dash-card" class="span4">
 			<?php
 			if (!empty($user['User']['avatar'])) {
@@ -8,8 +8,10 @@
 			}
 			?>
 			<br/>
-			<h3><?php echo $user['User']['name']; ?></h3>
-			<h4><?php echo $user['User']['alias']; ?></h4>
+			<div id="name-card">
+				<h3><?php echo $user['User']['name']; ?></h3>
+				<h4><?php echo $user['User']['alias']; ?></h4>
+			</div>
 	</div>
 	<div class="span8">
 		<div class="row-fluid">

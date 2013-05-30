@@ -35,6 +35,16 @@ div.input-space {
  	border-radius: 3px;
 }
 
+#name-card {
+	border: 1px solid #d5d5d5;
+	background-color: #fff;
+	-moz-border-radius: 3px;
+ 	-webkit-border-radius: 3px;
+ 	border-radius: 3px;
+ 	width: 200px;
+ 	margin: 15px auto 0px auto;
+}
+
 #UserDashboardForm span.add-on {
 	width: 50px;
 }
@@ -87,4 +97,12 @@ div.span-padding {
 
 #smack-row {
 	margin-top: 15px;
+}
+
+#dash-row {
+	margin-top: 20px;
+}
+
+#header-row {
+	text-align: center;
 }
