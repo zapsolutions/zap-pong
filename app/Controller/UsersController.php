@@ -53,11 +53,10 @@ class UsersController extends AppController
  */
 	public function edit()
 	{
-		$user = $this->Auth->user('id');
-		if ($this->request->is('post')) {
+		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash(
-					__('The %s has been saved', __('user')),
+					'You\'ve successfully updated your account info!',
 					'alert',
 					array(
 						'plugin' => 'TwitterBootstrap',
@@ -65,14 +64,24 @@ class UsersController extends AppController
 					)
 				);
 				$this->redirect(array('action' => 'edit'));
+			} else {
+				$this->Session->setFlash(
+					'Something went wrong with updating your account info!',
+					'alert',
+					array(
+						'plugin' => 'TwitterBootstrap',
+						'class' => 'alert-error'
+					)
+				);
 			}
 		} else {
 			$data = $this->User->find('first', array(
 				'conditions' => array(
-					'User.id' => $user
+					'User.id' => $this->Auth->user('id')
 				)
 			));
 			$this->request->data = $data;
+			$this->set('user', $data);
 		}
 	}
 

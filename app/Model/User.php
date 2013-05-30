@@ -78,9 +78,11 @@ class User extends AppModel
 	public $actsAs = array(
         'Upload.Upload' => array(
             'avatar' => array(
-                'fields' => array(
-                    'dir' => 'avatar_dir'
-                ),
+                'fields' => array('dir' => 'avatar_dir'),
+                'thumbnailSizes' => array(
+                	'thumb' => '[80x80]',
+                	'profile' => '[200x200]'
+                )
             )
         )
     );
