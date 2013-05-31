@@ -27,6 +27,7 @@ class SessionsController extends AppController {
                 $this->Session->setFlash('Invalid login details, please try again.');
             }
         }
+        $this->set('title_for_layout', 'Login');
     }
 
     public function logout()
