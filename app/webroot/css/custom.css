@@ -106,3 +106,8 @@ div.span-padding {
 #header-row {
 	text-align: center;
 }
+
+div.center {
+ 	float: none !important;
+ 	margin: 0 auto;
+}

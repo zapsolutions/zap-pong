@@ -167,7 +167,19 @@
 					<fieldset>
 						<legend>Smack Talk</legend>
 						<?php
-						echo $this->BootstrapForm->input('messsage', array(
+						foreach ($smacks as $smack) {
+							if ($smack['Smack']['anonymity'] === true) {
+								echo '<p><em>Anonymous said...</em></p>';
+							} elseif ($smack['Smack']['anonymity'] === false) {
+								echo "<p><em>{$smack['User']['alias']} said...</em></p>";
+							}
+							echo "<p>{$smack['Smack']['message']}</p>";
+						}
+						?>
+
+						<legend>Talk Smack</legend>
+						<?php
+						echo $this->BootstrapForm->input('message', array(
 							'type' => 'textarea',
 							'div' => false
 						));
@@ -177,6 +189,10 @@
 						echo $this->BootstrapForm->input('anonymity', array(
 							'div' => false,
 							'label' => 'Talk Anonymously?'
+						));
+						echo $this->BootstrapForm->input('user_id', array(
+							'type' => 'hidden',
+							'value' => $user['User']['id']
 						));
 						?>
 						<?php echo $this->BootstrapForm->submit(__('Talk Smack!'), array('class' => 'btn btn-large btn-danger'));?>

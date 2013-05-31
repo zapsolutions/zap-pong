@@ -21,17 +21,21 @@ class UsersController extends AppController
  */
 	public function dashboard()
 	{
-		$data = $this->User->find('first', array(
-				'conditions' => array(
-					'User.id' => $this->Auth->user('id')
-				)
-			));
-		$this->request->data = $data;
+		$user = $this->User->find('first', array(
+			'conditions' => array(
+				'User.id' => $this->Auth->user('id')
+			)
+		));
 		$users = $this->User->find('list', array(
 			'fields' => array('User.name')
 		));
-		$this->set('user', $data);
-		$this->set(compact('users'));
+		$this->User->Smack->recursive = 1;
+		$smacks = $this->User->Smack->find('all', array(
+			'order' => 'Smack.created DESC',
+			'limit' => 5
+		));
+		$this->request->data = $user;
+		$this->set(compact('user', 'users', 'smacks'));
 	}
 
 /**
