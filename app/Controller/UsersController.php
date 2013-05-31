@@ -8,6 +8,8 @@ App::uses('AppController', 'Controller');
 class UsersController extends AppController
 {
 
+	public $helpers = array('Time');
+
 	public function beforeFilter()
 	{
 		parent::beforeFilter();
