@@ -1,5 +1,5 @@
 <div id="dash-row" class="row-fluid">
-	<div id="dash-card" class="span4">
+	<div id="dash-card" class="span3 offset1 dash-box">
 			<?php
 			if (!empty($user['User']['avatar'])) {
 				echo "<img src=\"/files/user/avatar/{$user['User']['id']}/profile_{$user['User']['avatar']}\" class=\"img-polaroid\" />";
@@ -8,10 +8,8 @@
 			}
 			?>
 			<br/>
-			<div id="name-card">
-				<h3><?php echo $user['User']['name']; ?></h3>
-				<h4><?php echo $user['User']['alias']; ?></h4>
-			</div>
+			<h3><?php echo $user['User']['name']; ?></h3>
+			<h4><?php echo $user['User']['alias']; ?></h4>
 	</div>
 	<div class="span8">
 		<div class="row-fluid">
@@ -71,7 +69,7 @@
 				));
 				?>
 					<fieldset>
-						<legend><?php echo __('New %s', __('Game')); ?></legend>
+						<legend><?php echo'New Game'; ?></legend>
 						<?php
 						echo $this->BootstrapForm->input('type', array(
 							'type'  => 'hidden',
@@ -169,9 +167,9 @@
 						<?php
 						foreach ($smacks as $smack) {
 							if ($smack['Smack']['anonymity'] === true) {
-								echo '<p><em>Anonymous said...</em></p>';
+								echo '<p><i class="icon-eye-close"></i>&nbsp;<em>Anonymous said...</em></p>';
 							} elseif ($smack['Smack']['anonymity'] === false) {
-								echo "<p><em>{$smack['User']['alias']} said...</em></p>";
+								echo "<p><i class=\"icon-user\"></i>&nbsp;<em>{$smack['User']['alias']} said...</em></p>";
 							}
 							echo "<p>{$smack['Smack']['message']}</p>";
 						}
@@ -181,10 +179,15 @@
 						<?php
 						echo $this->BootstrapForm->input('message', array(
 							'type' => 'textarea',
-							'div' => false
+							'div' => false,
+							'class' => 'span12',
+							'label' => 'Message:'
 						));
 						echo $this->BootstrapForm->input('tags', array(
-							'div' => false
+							'div' => false,
+							'before'  => '<div class="input-space input-prepend"><span class="add-on">Tags</span>',
+							'after' => '</div>',
+							'label' => false
 						));
 						echo $this->BootstrapForm->input('anonymity', array(
 							'div' => false,

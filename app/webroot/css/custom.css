@@ -21,7 +21,7 @@ div.input-space {
 .dash-box {
 	border: 1px solid #d5d5d5;
 	background-color: #fff;
-	height: 340px;
+	min-height: 340px;
 	-moz-border-radius: 3px;
  	-webkit-border-radius: 3px;
  	border-radius: 3px;
@@ -49,7 +49,11 @@ div.input-space {
 	width: 50px;
 }
 
-#UserDashboardForm span.add-on, label[for="UserAvatar"] {
+#UserDashboardForm span.add-on,
+label[for="UserAvatar"],
+#SmackDashboardForm span.add-on,
+label[for="SmackMessage"]
+{
 	font-size: 11px;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -57,10 +61,16 @@ div.input-space {
 
 #dash-card {
 	text-align: center;
+	padding: 10px 0px;
+	min-height: 0;
 }
 
 #dash-card h3, #dash-card h4 {
 	margin: 0;
+}
+
+#dash-card h4 {
+	font-weight: normal;
 }
 
 div.span-padding {
