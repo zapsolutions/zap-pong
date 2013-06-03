@@ -84,7 +84,8 @@ class User extends AppModel
                 	'profile' => '[200x200]'
                 )
             )
-        )
+        ),
+        'Tags.Taggable' => array()
     );
 
 /**

@@ -36,16 +36,17 @@ class UsersController extends AppController
 			'order' => 'Smack.created DESC',
 			'limit' => 5
 		));
-		$user_smacks = $this->User->Smack->find('all', array(
-			'order' => 'Smack.created DESC',
+		$user_smacks = $this->User->Tagged->find('tagged', array(
+			//'order' => 'Smack.created DESC',
 			'limit' => 5,
-			'conditions' => array(
+			'by' => array(
 				'OR' => array(
-					'Tag.name' => $user['User']['name'],
-					'Tag.name' => $user['User']['alias']
+					$user['User']['name'],
+					$user['User']['alias']
 				)
 			)
  		));
+ 		//debug($user_smacks);
 		$this->request->data = $user;
 		$this->set('title_for_layout', 'Dashboard');
 		$this->set(compact('user', 'users', 'smacks', 'user_smacks'));
