@@ -107,6 +107,16 @@ class UsersController extends AppController
 
 	public function random_teams()
 	{
+		if ($this->request->is('post')) {
+			$players = $this->request->data;
+			$selection = $this->User->find('all', array(
+				'conditions' => array(
+					'User.id' => $players['User']
+				),
+				'order' => 'RAND()'
+			));
+			$this->set(compact('selection'));
+		}
 		$user = $this->User->find('first', array(
 			'conditions' => array(
 				'User.id' => $this->Auth->user('id')

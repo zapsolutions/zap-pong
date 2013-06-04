@@ -143,7 +143,7 @@
 			</div>
 		</div>
 		<div id="smack-row" class="row-fluid">
-			<div class="span12 smack-box">
+			<div class="span12 dash-box">
 				<div class="span-padding">
 				<?php 
 				echo $this->BootstrapForm->create('Smack', array(
