@@ -44,7 +44,7 @@ class AppController extends Controller
         'Session',
         'Auth' => array(
             'loginAction'    => array('controller' => 'sessions', 'action' => 'login'),
-            'loginRedirect'  => '/',
+            'loginRedirect'  => '/dashboard',
             'logoutRedirect' => '/',
             'authorize'      => array('Controller'),
             'authError'      => 'You need to be logged in to view this page.',

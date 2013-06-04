@@ -62,7 +62,7 @@ class UsersController extends AppController
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(
-					__('The %s could not be saved. Please, try again.', __('user')),
+					'The player could not be saved.  Please try again.  :-(',
 					'alert',
 					array(
 						'plugin' => 'TwitterBootstrap',
@@ -93,7 +93,7 @@ class UsersController extends AppController
 				$this->redirect(array('action' => 'dashboard'));
 			} else {
 				$this->Session->setFlash(
-					'Something went wrong with updating your account info!',
+					'Something went wrong with updating your account info. :-(',
 					'alert',
 					array(
 						'plugin' => 'TwitterBootstrap',
@@ -103,6 +103,20 @@ class UsersController extends AppController
 				$this->redirect(array('action' => 'dashboard'));
 			}
 		} 
+	}
+
+	public function random_teams()
+	{
+		$user = $this->User->find('first', array(
+			'conditions' => array(
+				'User.id' => $this->Auth->user('id')
+			)
+		));
+		$users = $this->User->find('list', array(
+			'fields' => array('User.name')
+		));
+
+		$this->set(compact('user', 'users'));
 	}
 
 }
