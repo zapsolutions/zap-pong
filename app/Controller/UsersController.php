@@ -125,7 +125,7 @@ class UsersController extends AppController
 		$users = $this->User->find('list', array(
 			'fields' => array('User.name')
 		));
-
+		$this->set('title_for_layout', 'Teams');
 		$this->set(compact('user', 'users'));
 	}
 

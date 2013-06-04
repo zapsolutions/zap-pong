@@ -1,3 +1,4 @@
+<?php echo $this->element('navbar'); ?>
 <div id="dash-row" class="row-fluid">
 	<?php echo $this->element('player_card'); ?>
 	<div class="span8">
