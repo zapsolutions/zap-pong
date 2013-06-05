@@ -88,6 +88,10 @@ class User extends AppModel
         'Tags.Taggable' => array()
     );
 
+    public $virtualFields = array(
+    	'total_games' => 'User.wins + User.losses'
+	);
+
 /**
  * beforeSave Model Callback
  * @param array $options

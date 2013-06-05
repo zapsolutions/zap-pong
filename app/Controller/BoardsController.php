@@ -15,7 +15,8 @@ class BoardsController extends AppController
  *
  * @return void
  */
-	public function all() {
+	public function all()
+	{
 
 		// By rating, main board
 		$ratings = $this->User->find('all', array(
@@ -28,28 +29,6 @@ class BoardsController extends AppController
 			),
 			'order' => array(
 				'User.rating DESC'
-			)
-		));
-
-		// By # of sinks, sub-board
-		$sinks = $this->User->find('all', array(
-			'conditions' => array(
-				'User.active' => 1,
-				'User.sinks >' => 0
-			),
-			'order' => array(
-				'User.sinks DESC'
-			)
-		));
-
-		// By # of hits, sub-board
-		$hits = $this->User->find('all', array(
-			'conditions' => array(
-				'User.active' => 1,
-				'User.hits >' => 0
-			),
-			'order' => array(
-				'User.hits DESC'
 			)
 		));
 
