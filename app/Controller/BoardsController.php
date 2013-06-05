@@ -41,7 +41,7 @@ class BoardsController extends AppController
 			'limit' => 3
 		));
 
-		$this->set('title_for_layout', 'Leaderboards');
+		$this->set('title_for_layout', 'Leaderboard');
 		$this->set(compact('ratings', 'sinks', 'hits', 'games'));
 
 	}

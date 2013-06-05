@@ -30,6 +30,7 @@ class GamesController extends AppController
 			if ($this->Game->saveAll($data)) {
 				$this->__updateStats($data['Player'], $data['Action']['type']);
 				$this->__updateRatings($data['Player']);
+				$this->__updateStreaks($data['Player']);
 				$this->Session->setFlash(
 					__('The %s has been saved!', __('game')),
 					'alert',
@@ -38,10 +39,10 @@ class GamesController extends AppController
 						'class' => 'alert-success'
 					)
 				);
-				$this->redirect(array('controller' => 'games', 'action' => 'add'));
+				$this->redirect('/');
 			} else {
 				$this->Session->setFlash(
-					__('The %s could not be saved. Please, try again.', __('game')),
+					__('The %s could not be saved. Please, try again. :(', __('game')),
 					'alert',
 					array(
 						'plugin' => 'TwitterBootstrap',
@@ -56,11 +57,6 @@ class GamesController extends AppController
 			));
 			$this->set(compact('users'));
 		}
-	}
-
-	public function choose_teams()
-	{
-
 	}
 
 	private function __updateStats($players = array(), $action = null)
@@ -99,6 +95,33 @@ class GamesController extends AppController
 			$rating = $percentage * $augSpread;
 			$this->User->id = $player['user_id'];
 			$this->User->saveField('rating', $rating);
+		}
+	}
+
+	private function __updateStreaks($players = array())
+	{
+		foreach ($players as $player) {
+			$user = $this->User->find('first', array(
+				'conditions' => array(
+					'User.id' => $player['user_id']
+				)
+			));
+			if ($player['result'] === '1') {
+				if ($user['User']['streak'] > 0 || $user['User']['streak'] == 0) {
+					$streak = $user['User']['streak'] + 1;
+				} else {
+					$streak = 1;
+				}
+			}
+			if ($player['result'] === '0') {
+				if ($user['User']['streak'] < 0 || $user['User']['streak'] == 0) {
+					$streak = $user['User']['streak'] - 1;
+				} else {
+					$streak = -1;
+				}
+			}
+			$this->User->id = $player['user_id'];
+			$this->User->saveField('streak', $streak);
 		}
 	}
 

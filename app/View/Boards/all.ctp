@@ -35,7 +35,12 @@
 				echo '<td>' . $rating['User']['tks'] . '</td>';
 				$action_percentage = (($rating['User']['sinks'] + $rating['User']['hits']) / $rating['User']['total_games']) * 100;
 				echo '<td>' . $this->Number->toPercentage($action_percentage) . '</td>';
-				echo '<td></td>';
+				if ($rating['User']['streak'] > 0) {
+					$streak = '+' . $rating['User']['streak'];
+				} else {
+					$streak = $rating['User']['streak'];
+				}
+				echo '<td>' . $streak . '</td>';
 				echo '</tr>';
 			}
 			?>
