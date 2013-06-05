@@ -5,10 +5,26 @@
 			<?php echo $this->Form->create('User'); ?>
 			<fieldset>
 		    	<legend><? echo __('Login'); ?></legend>
-		 		<?php echo $this->Form->input('email', array('label' => 'Email')); ?>
-				<?php echo $this->Form->input('password', array('label' => 'Password')); ?>
+		 		<?php
+		 			echo $this->Form->input('email', array(
+		 				'label' => false,
+		 				'div' => false,
+		 				'placeholder' => 'Email Address'
+		 			));
+		 		?>
+				<?php
+					echo $this->Form->input('password', array(
+						'label' => false,
+						'div' => false,
+						'placeholder' => 'Password'
+					));
+				?>
 			</fieldset>
-			<?php echo $this->Form->end(__('Login')); ?>
+			<?php 
+				echo $this->Form->submit('Login', array('class' => 'btn btn-large btn-success'));
+				echo $this->Form->end();
+			?>
+
 		</div>
 	</div>
 </div>
