@@ -87,11 +87,14 @@ class GamesController extends AppController
 					'User.id' => $player['user_id']
 				)
 			));
-			$total = $user['User']['wins'] + $user['User']['losses'];
 			$augWins = $user['User']['wins'] + ($user['User']['sinks'] * 0.50) + ($user['User']['hits'] * 0.25);
-			$augLosses = $user['User']['losses'] + ($user['User']['tks'] * 0.50);
+			$augLosses = $user['User']['losses'] + ($user['User']['tks'] * 0.50) + $user['User']['decay'];
 			$augSpread = $augWins - $augLosses;
-			$percentage = $user['User']['wins'] / $total;
+			if ($augWins - $augLosses > 0 || $augWins - $augLosses === 0) {
+				$percentage = $user['User']['wins'] / $user['User']['total_games'];
+			} else {
+				$percentage = $user['User']['losses'] / $user['User']['total_games'];
+			}
 			$rating = $percentage * $augSpread;
 			$this->User->id = $player['user_id'];
 			$this->User->saveField('rating', $rating);

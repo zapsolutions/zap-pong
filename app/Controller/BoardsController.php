@@ -17,6 +17,13 @@ class BoardsController extends AppController
  */
 	public function all()
 	{
+		$loggedIn = $this->Auth->user('id');
+		if ($loggedIn !== null) {
+			$user = $this->User->find('first', array(
+				'conditions' => array('User.id' => $loggedIn)
+			));
+			$this->set(compact('user'));
+		}
 
 		// By rating, main board
 		$ratings = $this->User->find('all', array(

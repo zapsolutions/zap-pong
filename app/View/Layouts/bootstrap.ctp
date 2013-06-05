@@ -48,7 +48,11 @@ $cakeDescription = __d('ZAP Pong', 'ZAP Pong');
 						<img src="/img/zap.png" />
 					</div>
 				</div>
-				<?php echo $this->Session->flash(); ?>
+				<div class="row-fluid">
+					<div class="span11 offset1">
+						<?php echo $this->Session->flash(); ?>
+					</div>
+				</div>
 				<?php echo $this->fetch('content'); ?>
 			</div>
 		</div>

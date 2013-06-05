@@ -1,5 +1,11 @@
+<?php
+	if ($user !== null) {
+		echo $this->element('navbar');
+	}
+?>
+
 <div class="row-fluid">
-	<div class="span12 dash-box">
+	<div class="span11 offset1 dash-box">
 		<table class="table table-hover table-condensed table-striped">
 			<tr>
 				<th>Rating</th>
