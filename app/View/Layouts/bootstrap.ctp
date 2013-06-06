@@ -43,12 +43,8 @@ $cakeDescription = __d('ZAP Pong', 'ZAP Pong');
 	<div id="container">
 		<div id="content">
 			<div class="container">
-				<div id="header-row" class="row-fluid">
-					<div class="span11 offset1">
-						<img src="/img/zap.png" />
-					</div>
-				</div>
-				<div class="row-fluid">
+				<?php echo $this->element('navbar'); ?>
+				<div id="flash-row" class="row-fluid">
 					<div class="span11 offset1">
 						<?php echo $this->Session->flash(); ?>
 					</div>

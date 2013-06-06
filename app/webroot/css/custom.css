@@ -19,7 +19,7 @@ div.input-space {
 }
 
 .dash-box {
-	border: 1px solid #d5d5d5;
+	border: 1px solid #00ccff;
 	background-color: #fff;
 	min-height: 340px;
 	-moz-border-radius: 3px;
@@ -28,7 +28,7 @@ div.input-space {
 }
 
 #name-card {
-	border: 1px solid #d5d5d5;
+	border: 1px solid #00ccff;
 	background-color: #fff;
 	-moz-border-radius: 3px;
  	-webkit-border-radius: 3px;
@@ -115,6 +115,23 @@ div.center {
 
 #navbar-row {
 	margin-top: 20px;
+}
+
+#zap-logo {
+	width: 44px;
+	height: 44px;
+}
+
+#flash-row, #flash-row div.span11.offset1 {
+	min-height: 0;
+}
+
+h1 {
+	font-size: 20.5px;
+}
+
+div.row-board {
+	margin-bottom: 20px;
 }
 
 /* */

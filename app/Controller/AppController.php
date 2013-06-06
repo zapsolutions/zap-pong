@@ -35,13 +35,14 @@ class AppController extends Controller
 {
 	public $layout = 'bootstrap';
 	public $helpers = array(
-        'Session',
+        'Time',
         'Html' => array('className' => 'TwitterBootstrap.BootstrapHtml'),
         'Form' => array('className' => 'TwitterBootstrap.BootstrapForm'),
         'Paginator' => array('className' => 'TwitterBootstrap.BootstrapPaginator'),
     );
     public $components = array(
         'Session',
+        'Security',
         'Auth' => array(
             'loginAction'    => array('controller' => 'sessions', 'action' => 'login'),
             'loginRedirect'  => '/dashboard',

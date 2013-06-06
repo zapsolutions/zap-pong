@@ -10,6 +10,10 @@ class BoardsController extends AppController
 
 	public $uses = array('Game', 'User');
 
+	public function beforeFilter() {
+		$this->Auth->allow('all');
+	}
+
 /**
  * all method
  *
@@ -45,7 +49,7 @@ class BoardsController extends AppController
 			'order' => array(
 				'Game.created DESC'
 			),
-			'limit' => 3
+			'limit' => 5
 		));
 
 		$this->set('title_for_layout', 'Leaderboard');
