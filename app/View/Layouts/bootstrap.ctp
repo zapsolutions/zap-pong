@@ -50,15 +50,24 @@ $cakeDescription = __d('ZAP Pong', 'ZAP Pong');
 					</div>
 				</div>
 				<?php echo $this->fetch('content'); ?>
+				<div id="footer" class="row-fluid">
+					<div class="span11 offset1">
+						<?php
+						$github = $this->Html->link(
+							$this->Html->image('github_icon.png',
+								array('alt' => 'ZAP Pong Github Repository', 'border' => '0')
+							),
+							'https://github.com/bcrowe/zap-pong',
+							array('target' => '_blank', 'escape' => false)
+						);
+						echo '<p></p>';
+						echo '<p>' . $github . 'pong.zapsolutions.com was lovingly built using ';
+						echo $this->Html->link('CakePHP', 'http://www.cakephp.org/', array('target' => '_blank', 'escape' => false));
+						echo '</p>';
+						?>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
 		</div>
 	</div>
 	<?php //echo $this->element('sql_dump'); ?>

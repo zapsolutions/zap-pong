@@ -14,7 +14,7 @@
 					} else {
 						$team = 2;
 					}
-					echo 'Team ' . $team . ': ' . $player['User']['name'];
+					echo '<strong>Team ' . $team . ':</strong> ' . $player['User']['name'];
 					echo '</div></div>';
 					$i++;
 				}
@@ -26,7 +26,7 @@
 				echo '<legend>Select Players for Teams</legend>';
 				$i = 0;
 				foreach ($users as $key => $value) {
-					echo '<div class="span3">';
+					echo '<div class="span4">';
 					echo $this->BootstrapForm->input('User.' . $i, array(
 						'type' => 'checkbox',
 						'value' => $key,

@@ -17,9 +17,23 @@
 					<?php else: ?>
 						<li class="dropdown">
 	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> Login <b class="caret"></b></a>
-		                    <ul class="dropdown-menu">
-		                        <li><a href="#">Action</a></li>
-		                        <li><a href="#">Another action</a></li>
+		                    <ul id="login-dropdown" class="dropdown-menu">
+		                        <li>
+		                        	<?php
+		                        	echo $this->Form->create('User', array('url' => '/login'));
+						 			echo $this->Form->input('email', array(
+						 				'label' => false,
+						 				'div' => false,
+						 				'placeholder' => 'Email Address'
+						 			));
+									echo $this->Form->input('password', array(
+										'label' => false,
+										'div' => false,
+										'placeholder' => 'Password'
+									));
+									echo $this->Form->end('Login');
+									?>
+		                        </li>
 		                    </ul>
 	               		</li>
 					<?php endif; ?>

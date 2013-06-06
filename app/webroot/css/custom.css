@@ -71,7 +71,8 @@ div.span-padding {
 
 #UserDashboardForm button[type="submit"],
 #GameDashboardForm button[type="submit"],
-#SmackDashboardForm button[type="submit"] {
+#SmackDashboardForm button[type="submit"],
+#UserRandomTeamsForm button[type="submit"] {
 	width: 100%;
 	vertical-align: bottom;
 }
@@ -132,6 +133,30 @@ h1 {
 
 div.row-board {
 	margin-bottom: 20px;
+}
+
+#login-dropdown {
+	padding: 7px;
+}
+
+#login-dropdown form {
+	margin-bottom: 0;
+}
+
+#login-dropdown input {
+	margin-bottom: 5px;
+}
+
+#login-dropdown div.control-group {
+	margin-bottom: 0;
+}
+
+#login-dropdown button {
+	margin-top: 0;
+}
+
+#footer {
+	text-align: center;
 }
 
 /* */

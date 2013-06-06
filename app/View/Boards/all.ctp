@@ -56,10 +56,10 @@
 		<div class="span-padding">
 			<h1>Game History</h1>
 			<table class="table table-hover table-condensed table-striped">
-				<th>Winner</th>
-				<th>Winner</th>
-				<th>Loser</th>
-				<th>Loser</th>
+				<th>Winners</th>
+				<th></th>
+				<th>Losers</th>
+				<th></th>
 				<th>Actor</th>
 				<th>Action</th>
 				<th></th>

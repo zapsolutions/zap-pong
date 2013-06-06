@@ -44,14 +44,18 @@ class BoardsController extends AppController
 		));
 
 		// Recent games played
-		$this->Game->recursive = 2;
+		$this->Game->Behaviors->attach('Containable');
 		$games = $this->Game->find('all', array(
 			'order' => array(
 				'Game.created DESC'
 			),
-			'limit' => 5
+			'limit' => 5,
+			'contain' => array(
+				'Player' => array(
+					'User'
+				)
+			)
 		));
-
 		$this->set('title_for_layout', 'Leaderboard');
 		$this->set(compact('ratings', 'sinks', 'hits', 'games'));
 

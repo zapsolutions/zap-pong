@@ -173,12 +173,14 @@
 							'class' => 'span12',
 							'label' => 'Message:'
 						));
+						/*
 						echo $this->BootstrapForm->input('tags', array(
 							'div' => false,
 							'before'  => '<div class="input-space input-prepend"><span class="add-on">Tags</span>',
 							'after' => '</div>',
 							'label' => false
 						));
+						*/
 						echo $this->BootstrapForm->input('anonymity', array(
 							'div' => false,
 							'label' => 'Talk Smack Anonymously?'
