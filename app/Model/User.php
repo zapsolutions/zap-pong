@@ -34,6 +34,26 @@ class User extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'password' => array(
+			'between' => array(
+                'rule'    => array('between', 5, 15),
+                'message' => 'Passwords must be between 5 and 15 characters.',
+            ),
+			'checkMatch' => array( 
+            	'rule' => 'confirmPassword', 
+             	'message' => 'Your passwords didn\'t match.',
+            )
+		),
+		'password_confirm' => array(
+			'between' => array(
+                'rule'    => array('between', 5, 15),
+                'message' => 'Passwords must be between 5 and 15 characters.',
+            ),
+			'checkMatch' => array( 
+            	'rule' => 'confirmPassword', 
+             	'message' => 'Your passwords didn\'t match.', 
+            )
+		)
 	);
 
 /**
@@ -104,6 +124,13 @@ class User extends AppModel
             $this->data['User']['password'] = $hash;
         }
         return true;
+    }
+
+    public function confirmPassword() { 
+    	if ($this->data[$this->alias]['password'] == $this->data[$this->alias]['password_confirm']) {
+    		return true;
+    	}
+    	return false;
     }
 
 }

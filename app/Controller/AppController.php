@@ -63,4 +63,9 @@ class AppController extends Controller
         return true;
     }
     
+    public function beforeFilter()
+    {
+        $this->Auth->allow(array('forgot_password', 'reset_password'));
+    }   
+
 }
