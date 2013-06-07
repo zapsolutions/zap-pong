@@ -142,14 +142,14 @@ class UsersController extends AppController
 
 	public function reset_password($id = null, $secret = null)
 	{
-		$minusOneHour = strtotime('-1 hour', time());
-		$plusOneHour = strtotime('+1 hour', time());
+		$minusOneHour = date('Y-m-d H:i:s', strtotime('-1 hour', time()));
+		$nowHour = date('Y-m-d H:i:s', strtotime('now', time()));
 		$this->loadModel('Token');
 		$valid_token = $this->Token->find('first', array(
 			'conditions' => array(
 				'Token.id'        => $id,
 				'Token.secret'     => $secret,
-				//'Token.created BETWEEN ? AND ?' => array($minusOneHour, $plusOneHour)
+				'Token.created BETWEEN ? AND ?' => array($minusOneHour, $nowHour)
 			)
 		));
 		$data = $this->request->data;
