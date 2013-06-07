@@ -159,10 +159,18 @@ div.row-board {
 
 #footer {
 	text-align: center;
+	padding-top: 15px;
 }
 
 #forgot-pw {
 	text-align: center;
 	padding-top: 7px;
+}
+
+#leaderboard {
+	font-size: 11px;
+	border-bottom: 1px solid #e5e5e5;
+	border-left: 1px solid #e5e5e5;
+	border-right: 1px solid #e5e5e5;
 }
 /* */

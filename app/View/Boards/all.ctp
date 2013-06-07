@@ -2,7 +2,7 @@
 	<div class="span11 offset1 dash-box">
 		<div class="span-padding">
 			<h1>Leaderboard</h1>
-			<table class="table table-hover table-condensed table-striped">
+			<table id="leaderboard" class="table table-hover table-condensed table-striped">
 				<tr>
 					<th>Rank</th>
 					<th>Rating</th>
@@ -15,6 +15,7 @@
 					<th>Sinks</th>
 					<th>Hits</th>
 					<th>TKs</th>
+					<th>Decay</th>
 					<th>Action %</th>
 					<th>Streak</th>
 				</tr>
@@ -29,7 +30,11 @@
 					} else {
 						echo '<td>' . "<img src=\"/img/anon_thumb.gif\" /></td>";
 					}
-					echo '<td>' . $rating['User']['name'] . '</td>';
+					if ($authenticated === true) {
+						echo '<td>' . $rating['User']['alias'] . '</td>';
+					} else {
+						echo '<td>' . $rating['User']['name'] . '</td>';
+					}
 					echo '<td>' . $rating['User']['wins'] . '</td>';
 					echo '<td>' . $rating['User']['losses'] . '</td>';
 					echo '<td>' . $rating['User']['total_games'] . '</td>';
@@ -38,6 +43,7 @@
 					echo '<td>' . $rating['User']['sinks'] . '</td>';
 					echo '<td>' . $rating['User']['hits'] . '</td>';
 					echo '<td>' . $rating['User']['tks'] . '</td>';
+					echo '<td>' . $rating['User']['decay'] . '</td>';
 					$action_percentage = (($rating['User']['sinks'] + $rating['User']['hits']) / $rating['User']['total_games']) * 100;
 					echo '<td>' . $this->Number->toPercentage($action_percentage) . '</td>';
 					if ($rating['User']['streak'] > 0) {
@@ -86,10 +92,18 @@
 						}
 					}
 					foreach ($winners as $winner) {
-						echo '<td>' . $winner['User']['name'] . '</td>';
+						if ($authenticated === true) {
+							echo '<td>' . $winner['User']['alias'] . '</td>';
+						} else {
+							echo '<td>' . $winner['User']['name'] . '</td>';
+						}
 					}
 					foreach ($losers as $loser) {
-						echo '<td>' . $loser['User']['name'] . '</td>';
+						if ($authenticated === true) {
+							echo '<td>' . $winner['User']['alias'] . '</td>';
+						} else {
+							echo '<td>' . $winner['User']['name'] . '</td>';
+						}
 					}
 					echo '<td>' . $actor['User']['name'] . '</td>';
 					echo '<td>' . ucwords($actor['action']) . '</td>';

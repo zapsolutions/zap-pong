@@ -58,6 +58,7 @@ $cakeDescription = __d('ZAP Pong', 'ZAP Pong');
 							'https://github.com/bcrowe/zap-pong',
 							array('target' => '_blank', 'escape' => false)
 						);
+						echo '&nbsp;&nbsp;';
 					 	echo $this->Html->link(
 							$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
 							'http://www.cakephp.org/',

@@ -58,6 +58,7 @@ class BoardsController extends AppController
 		));
 		$this->set('title_for_layout', 'Leaderboard');
 		$this->set(compact('ratings', 'sinks', 'hits', 'games'));
+		$this->set('authenticated', $this->Auth->loggedIn());
 
 	}
 
