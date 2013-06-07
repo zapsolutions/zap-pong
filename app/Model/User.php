@@ -1,5 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
+App::uses('CakeEmail', 'Network/Email');
 /**
  * User Model
  *
@@ -126,7 +127,24 @@ class User extends AppModel
         return true;
     }
 
-    public function confirmPassword() { 
+	public function sendResetEmail($id = null, $secret = null, $email_address = null) {
+		$email = new CakeEmail();
+		$email->config('default');
+		$email->viewVars(array(
+			'insert' => $id,
+			'secret' => $secret
+		));
+		$email->template('reset_password');
+    	$email->emailFormat('html');
+		$email->sender('no-replay@pong.zapsolutions.com', 'ZAP Pong');
+		$email->from(array('no-replay@pong.zapsolutions.com' => 'ZAP Pong'));
+		$email->to($email_address);
+		$email->subject('ZAP Pong Password Reset');
+		$email->send();
+	}
+
+    public function confirmPassword()
+    { 
     	if ($this->data[$this->alias]['password'] == $this->data[$this->alias]['password_confirm']) {
     		return true;
     	}

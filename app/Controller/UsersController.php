@@ -125,16 +125,17 @@ class UsersController extends AppController
 				);
 				$this->redirect(array('controller' => 'users', 'action' => 'forgot_password'));
 			}
+			App::uses('String', 'Utility');
 			$secret_token = String::uuid();
 			$this->loadModel('Token');
-			$data = array(
+			$new_token = array(
 				'Token' => array(
-					'secret' => $token
+					'secret' => $secret_token
 				)
 			);
-			$this->Token->save($data);
+			$this->Token->save($new_token);
 			$token_id = $this->Token->id;
-			$this->User->sendReset($token_id, $secret_token);
+			$this->User->sendResetEmail($token_id, $secret_token, $data['User']['email']);
 			$this->redirect(array('controller' => 'pages', 'action' => 'reset'));
 		}
 	}
@@ -148,9 +149,10 @@ class UsersController extends AppController
 			'conditions' => array(
 				'Token.id'        => $id,
 				'Token.secret'     => $secret,
-				'Token.created BETWEEN ? AND ?' => array($minusOneHour, $plusOneHour)
+				//'Token.created BETWEEN ? AND ?' => array($minusOneHour, $plusOneHour)
 			)
 		));
+		$data = $this->request->data;
 		if (!empty($valid_token)) {
 			if ($this->request->is('post') || $this->request->is('put')) {
 				$user = $this->User->find('first', array(
@@ -158,8 +160,7 @@ class UsersController extends AppController
 						'User.email' => $token_data['Token']['email']
 					)
 				));
-				$data = $this->request->data;
-				if ($this->User->save($data)) {
+				if ($this->User->saveField('password', $data['User']['password'])) {
 					$this->Session->setFlash(
 						'Your password has been updated!',
 						'alert',
