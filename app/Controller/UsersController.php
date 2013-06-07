@@ -42,38 +42,6 @@ class UsersController extends AppController
 	}
 
 /**
- * add method
- *
- * @return void
- */
-	public function add()
-	{
-		if ($this->request->is('post')) {
-			$this->User->create();
-			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(
-					__('The %s has been saved', __('user')),
-					'alert',
-					array(
-						'plugin' => 'TwitterBootstrap',
-						'class' => 'alert-success'
-					)
-				);
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(
-					'The player could not be saved.  Please try again.  :-(',
-					'alert',
-					array(
-						'plugin' => 'TwitterBootstrap',
-						'class' => 'alert-error'
-					)
-				);
-			}
-		}
-	}
-
-/**
  * edit method
  *
  * @return void
@@ -108,6 +76,18 @@ class UsersController extends AppController
 	public function random_teams()
 	{
 		if ($this->request->is('post')) {
+			$numSelected = count($this->request->data['User']);
+			if ($numSelected !== 4) {
+				$this->Session->setFlash(
+					'You\'ve selected too few or too many players. :-(',
+					'alert',
+					array(
+						'plugin' => 'TwitterBootstrap',
+						'class' => 'alert-error'
+					)
+				);
+				$this->redirect(array('action' => 'random_teams'));
+			}
 			$players = $this->request->data;
 			$selection = $this->User->find('all', array(
 				'conditions' => array(
@@ -127,6 +107,16 @@ class UsersController extends AppController
 		));
 		$this->set('title_for_layout', 'Teams');
 		$this->set(compact('user', 'users'));
+	}
+
+	public function forgot_password()
+	{
+
+	}
+
+	public function reset_password()
+	{
+
 	}
 
 }
