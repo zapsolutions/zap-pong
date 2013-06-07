@@ -178,3 +178,8 @@ div.row-board {
 	margin-top: -8px;
 	margin-right: -9px;
 }
+
+.modal {
+	width: 250px;
+	margin-left: -125px;
+}
