@@ -173,4 +173,8 @@ div.row-board {
 	border-left: 1px solid #e5e5e5;
 	border-right: 1px solid #e5e5e5;
 }
-/* */
+
+.modal-header .close {
+	margin-top: -8px;
+	margin-right: -9px;
+}

@@ -26,7 +26,7 @@
 					echo '<td>' . $rank . '</td>';
 					echo '<td>' . $rating['User']['rating'] . '</td>';
 					if ($rating['User']['avatar'] !== null) {
-						echo '<td>' . "<img src=\"/files/user/avatar/{$rating['User']['id']}/thumb_{$rating['User']['avatar']}\" /></td>";
+						echo '<td>' . "<a href=\"/files/user/avatar/{$rating['User']['id']}/profile_{$rating['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$rating['User']['id']}/thumb_{$rating['User']['avatar']}\" /></a></td>";
 					} else {
 						echo '<td>' . "<img src=\"/img/anon_thumb.gif\" /></td>";
 					}
@@ -118,4 +118,22 @@
 			</table>
 		</div>
 	</div>
+</div>
+
+
+<script type="text/javascript">
+	$('.img-modal').on('click', function(e) {
+	    e.preventDefault();
+	    $("#modal-img-target").attr("src", this);
+	    $('#modal').modal('show');
+	});
+</script>
+
+<div id="modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    </div>
+    <div class="modal-body">
+        <img id="modal-img-target">
+    </div>
 </div>
