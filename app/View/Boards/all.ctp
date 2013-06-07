@@ -65,7 +65,7 @@
 	<div class="span11 offset1 dash-box">
 		<div class="span-padding">
 			<h1>Game History</h1>
-			<table class="table table-hover table-condensed table-striped">
+			<table id="game-history" class="table table-hover table-condensed table-striped">
 				<th>Winners</th>
 				<th></th>
 				<th>Losers</th>
@@ -100,12 +100,16 @@
 					}
 					foreach ($losers as $loser) {
 						if ($authenticated === true) {
-							echo '<td>' . $winner['User']['alias'] . '</td>';
+							echo '<td>' . $loser['User']['alias'] . '</td>';
 						} else {
-							echo '<td>' . $winner['User']['name'] . '</td>';
+							echo '<td>' . $loser['User']['name'] . '</td>';
 						}
 					}
-					echo '<td>' . $actor['User']['name'] . '</td>';
+					if ($authenticated === true) {
+						echo '<td>' . $actor['User']['alias'] . '</td>';
+					} else {
+						echo '<td>' . $actor['User']['name'] . '</td>';
+					}
 					echo '<td>' . ucwords($actor['action']) . '</td>';
 					echo '<td>' . $this->Time->timeAgoInWords($game['Game']['created']) . '</td>';
 					echo '</tr>';

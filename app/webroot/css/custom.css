@@ -167,7 +167,7 @@ div.row-board {
 	padding-top: 7px;
 }
 
-#leaderboard {
+#leaderboard, #game-history {
 	font-size: 11px;
 	border-bottom: 1px solid #e5e5e5;
 	border-left: 1px solid #e5e5e5;
