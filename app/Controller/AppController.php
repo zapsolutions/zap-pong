@@ -65,7 +65,7 @@ class AppController extends Controller
     
     public function beforeFilter()
     {
-        $this->Auth->allow(array('all', 'forgot_password', 'reset_password', 'display', 'add'));
+        $this->Auth->allow(array('all', 'forgot_password', 'reset_password', 'display', 'add', 'alpha_omega'));
     }   
 
 }

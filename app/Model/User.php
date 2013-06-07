@@ -131,7 +131,7 @@ class User extends AppModel
 		$email = new CakeEmail();
 		$email->config('default');
 		$email->viewVars(array(
-			'insert' => $id,
+			'id' => $id,
 			'secret' => $secret
 		));
 		$email->template('reset_password');
