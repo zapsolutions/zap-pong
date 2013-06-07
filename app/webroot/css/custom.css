@@ -72,7 +72,9 @@ div.span-padding {
 #UserDashboardForm button[type="submit"],
 #GameDashboardForm button[type="submit"],
 #SmackDashboardForm button[type="submit"],
-#UserRandomTeamsForm button[type="submit"] {
+#UserRandomTeamsForm button[type="submit"],
+#login-dropdown button[type="submit"]
+{
 	width: 100%;
 	vertical-align: bottom;
 }
@@ -159,4 +161,8 @@ div.row-board {
 	text-align: center;
 }
 
+#forgot-pw {
+	text-align: center;
+	padding-top: 7px;
+}
 /* */

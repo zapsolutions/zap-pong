@@ -130,7 +130,9 @@ class UsersController extends AppController
 			$this->loadModel('Token');
 			$new_token = array(
 				'Token' => array(
-					'secret' => $secret_token
+					'secret' => $secret_token,
+					'model' => 'User',
+					'foreign_key' => $exists['User']['id']
 				)
 			);
 			$this->Token->save($new_token);
@@ -147,42 +149,50 @@ class UsersController extends AppController
 		$this->loadModel('Token');
 		$valid_token = $this->Token->find('first', array(
 			'conditions' => array(
-				'Token.id'        => $id,
-				'Token.secret'     => $secret,
+				'Token.id'     => $id,
+				'Token.secret' => $secret,
+				'Token.model'  => 'User',
 				'Token.created BETWEEN ? AND ?' => array($minusOneHour, $nowHour)
 			)
 		));
-		$data = $this->request->data;
-		if (!empty($valid_token)) {
-			if ($this->request->is('post') || $this->request->is('put')) {
-				$user = $this->User->find('first', array(
-					'conditions' => array(
-						'User.email' => $token_data['Token']['email']
-					)
-				));
-				if ($this->User->saveField('password', $data['User']['password'])) {
-					$this->Session->setFlash(
-						'Your password has been updated!',
-						'alert',
-						array(
-							'plugin' => 'TwitterBootstrap',
-							'class' => 'alert-success'
-						)
-					);
-					$this->redirect('/login');
-				} else {
-					$this->Session->setFlash(
-						'There was a problem updating your password.',
-						'alert',
-						array(
-							'plugin' => 'TwitterBootstrap',
-							'class' => 'alert-error'
-						)
-					);
-				}	
-			}
-		} else {
+		if (empty($valid_token)) {
 			throw new NotFoundException('Invalid or expired token.');
+		}
+		$data = $this->request->data;
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->User->save($data)) {
+				$this->Session->setFlash(
+					'Your password has been updated!',
+					'alert',
+					array(
+						'plugin' => 'TwitterBootstrap',
+						'class' => 'alert-success'
+					)
+				);
+				$this->redirect('/');
+			} else {
+				$this->Session->setFlash(
+					'There was a problem updating your password.',
+					'alert',
+					array(
+						'plugin' => 'TwitterBootstrap',
+						'class' => 'alert-error'
+					)
+				);
+			}	
+		}
+		$user = $this->User->find('first', array(
+				'conditions' => array(
+				'User.id' => $valid_token['Token']['foreign_key']
+			)
+		));
+		$this->set(compact('user'));
+	}
+
+	public function add()
+	{
+		if ($this->request->is('post')) {
+			$this->User->save($this->request->data);
 		}
 	}
 

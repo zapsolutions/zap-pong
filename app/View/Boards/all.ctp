@@ -4,6 +4,7 @@
 			<h1>Leaderboard</h1>
 			<table class="table table-hover table-condensed table-striped">
 				<tr>
+					<th>Rank</th>
 					<th>Rating</th>
 					<th></th>
 					<th>Player</th>
@@ -18,8 +19,10 @@
 					<th>Streak</th>
 				</tr>
 				<?php
+				$rank = 1;
 				foreach ($ratings as $rating) {
 					echo '<tr>';
+					echo '<td>' . $rank . '</td>';
 					echo '<td>' . $rating['User']['rating'] . '</td>';
 					if ($rating['User']['avatar'] !== null) {
 						echo '<td>' . "<img src=\"/files/user/avatar/{$rating['User']['id']}/thumb_{$rating['User']['avatar']}\" /></td>";
@@ -44,6 +47,7 @@
 					}
 					echo '<td>' . $streak . '</td>';
 					echo '</tr>';
+					$rank++;
 				}
 				?>
 			</table>

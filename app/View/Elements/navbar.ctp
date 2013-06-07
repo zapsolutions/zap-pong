@@ -33,7 +33,15 @@
 									));
 									echo $this->Form->end('Login');
 									?>
-		                        </li>
+								</li>
+								<li id="forgot-pw">
+									<?php
+									echo $this->Html->link('Forgot Password', array(
+										'controller' => 'users',
+										'action' => 'forgot_password'
+									));
+									?>
+								</li>
 		                    </ul>
 	               		</li>
 					<?php endif; ?>
