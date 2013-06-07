@@ -1,1 +1,4 @@
-<?php echo json_encode($data); ?>
+<?php 
+	header('Access-Control-Allow-Origin: *');
+	echo json_encode($data);
+?>
