@@ -153,6 +153,7 @@
 				?>
 					<fieldset>
 						<legend>Smack Talk</legend>
+						<div id="smack-box">
 						<?php
 						foreach ($smacks as $smack) {
 							$timeAgo = $this->Time->timeAgoInWords($smack['Smack']['created']);
@@ -164,7 +165,7 @@
 							echo "<p>{$smack['Smack']['message']}</p>";
 						}
 						?>
-
+						</div>
 						<legend>Talk Smack</legend>
 						<?php
 						echo $this->BootstrapForm->input('message', array(

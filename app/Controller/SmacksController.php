@@ -40,4 +40,16 @@ class SmacksController extends AppController {
 		}
 	}
 
+	public function load_more($offset = null)
+	{
+		$this->Smack->recursive = 1;
+		$smacks = $this->Smack->find('all', array(
+			'order' => 'Smack.created DESC',
+			'limit' => 5,
+			'offset' => $offset
+		));
+		$this->autoLayout = false;
+		$this->set(compact('smacks'));
+	}
+
 }
