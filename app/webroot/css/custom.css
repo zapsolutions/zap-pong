@@ -73,7 +73,8 @@ div.span-padding {
 #GameDashboardForm button[type="submit"],
 #SmackDashboardForm button[type="submit"],
 #UserRandomTeamsForm button[type="submit"],
-#login-dropdown button[type="submit"]
+#login-dropdown button[type="submit"],
+#smack-more
 {
 	width: 100%;
 	vertical-align: bottom;

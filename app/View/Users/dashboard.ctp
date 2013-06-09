@@ -145,55 +145,63 @@
 		<div id="smack-row" class="row-fluid">
 			<div class="span12 dash-box">
 				<div class="span-padding">
-				<?php 
-				echo $this->BootstrapForm->create('Smack', array(
-					'type' => 'file',
-					'url' => array('controller' => 'smacks', 'action' => 'add')
-				));
-				?>
-					<fieldset>
-						<legend>Smack Talk</legend>
-						<div id="smack-box">
-						<?php
-						foreach ($smacks as $smack) {
-							$timeAgo = $this->Time->timeAgoInWords($smack['Smack']['created']);
-							if ($smack['Smack']['anonymity'] === true) {
-								echo "<p><i class=\"icon-eye-close\"></i>&nbsp;<em>Anonymous said...</em> ({$timeAgo})</p>";
-							} elseif ($smack['Smack']['anonymity'] === false) {
-								echo "<p><i class=\"icon-user\"></i>&nbsp;<em>{$smack['User']['alias']} said...</em> ({$timeAgo})</p>";
-							}
-							echo "<p>{$smack['Smack']['message']}</p>";
+					<legend>Smack Talk</legend>
+					<div id="smack-box">
+					<?php
+					foreach ($smacks as $smack) {
+						$timeAgo = $this->Time->timeAgoInWords($smack['Smack']['created']);
+						if ($smack['Smack']['anonymity'] === true) {
+							echo "<p><i class=\"icon-eye-close\"></i>&nbsp;<em>Anonymous said...</em> ({$timeAgo})</p>";
+						} elseif ($smack['Smack']['anonymity'] === false) {
+							echo "<p><i class=\"icon-user\"></i>&nbsp;<em>{$smack['User']['alias']} said...</em> ({$timeAgo})</p>";
 						}
-						?>
-						</div>
-						<legend>Talk Smack</legend>
-						<?php
-						echo $this->BootstrapForm->input('message', array(
-							'type' => 'textarea',
-							'div' => false,
-							'class' => 'span12',
-							'label' => 'Message:'
-						));
-						/*
-						echo $this->BootstrapForm->input('tags', array(
-							'div' => false,
-							'before'  => '<div class="input-space input-prepend"><span class="add-on">Tags</span>',
-							'after' => '</div>',
-							'label' => false
-						));
-						*/
-						echo $this->BootstrapForm->input('anonymity', array(
-							'div' => false,
-							'label' => 'Talk Smack Anonymously?'
-						));
-						echo $this->BootstrapForm->input('user_id', array(
-							'type' => 'hidden',
-							'value' => $user['User']['id']
-						));
-						?>
-						<?php echo $this->BootstrapForm->submit(__('Talk Smack!'), array('class' => 'btn btn-large btn-danger'));?>
+						echo "<p>{$smack['Smack']['message']}</p>";
+					}
+					?>
+					</div>
+					
+					<?php 
+						echo $this->Form->button('Load More', array(
+							'id'    => 'smack-more',
+							'class' => 'btn btn-large'
+						)); 
+					?>
+
+					<?php 
+					echo $this->BootstrapForm->create('Smack', array(
+						'type' => 'file',
+						'url'  => array('controller' => 'smacks', 'action' => 'add')
+					));
+					?>
+					<fieldset>
+					<legend>Talk Smack</legend>
+					<?php
+					echo $this->BootstrapForm->input('message', array(
+						'type'  => 'textarea',
+						'div'   => false,
+						'class' => 'span12',
+						'label' => 'Message:'
+					));
+					/*
+					echo $this->BootstrapForm->input('tags', array(
+						'div' => false,
+						'before'  => '<div class="input-space input-prepend"><span class="add-on">Tags</span>',
+						'after' => '</div>',
+						'label' => false
+					));
+					*/
+					echo $this->BootstrapForm->input('anonymity', array(
+						'div' => false,
+						'label' => 'Talk Smack Anonymously?'
+					));
+					echo $this->BootstrapForm->input('user_id', array(
+						'type' => 'hidden',
+						'value' => $user['User']['id']
+					));
+					?>
+					<?php echo $this->BootstrapForm->submit(__('Talk Smack!'), array('class' => 'btn btn-large btn-danger'));?>
 					</fieldset>
-				<?php echo $this->BootstrapForm->end();?>
+					<?php echo $this->BootstrapForm->end();?>
 				</div>
 			</div>
 		</div>

@@ -35,6 +35,7 @@ $cakeDescription = __d('ZAP Pong', 'ZAP Pong');
 		echo $this->Html->css('custom');
 		echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js');
 		echo $this->Html->script('bootstrap.min');
+		echo $this->Html->script('js');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
