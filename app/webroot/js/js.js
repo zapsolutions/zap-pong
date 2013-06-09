@@ -1,11 +1,11 @@
 $(function () {
-	var load = 5;
+	var offset = 5;
 	$('#smack-more').bind('click', function() {
   		$.ajax({
-  			url: "/smacks/load_more/" + load,
+  			url: "/smacks/load_more/" + offset,
   			success: function(result) {
     			$("#smack-box").append(result);
-  				load = load + 5;
+  				offset = offset + 5;
   			}
   		});
 	});

@@ -40,6 +40,11 @@ class SmacksController extends AppController {
 		}
 	}
 
+/**
+ * load_more method
+ *
+ * @return void
+ */
 	public function load_more($offset = null)
 	{
 		$this->Smack->recursive = 1;

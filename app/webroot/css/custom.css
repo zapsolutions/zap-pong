@@ -80,6 +80,10 @@ div.span-padding {
 	vertical-align: bottom;
 }
 
+#smack-more {
+	margin-bottom: 15px;
+}
+
 #GameDashboardForm button[type="submit"] {
 	margin-top: 10px;
 }
