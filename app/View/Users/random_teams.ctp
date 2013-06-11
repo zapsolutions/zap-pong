@@ -20,13 +20,15 @@
 				}
 			}
 			?>
-				<div class="row-fluid">
 				<?php
 				echo $this->BootstrapForm->create('User');
 				echo '<legend>Select Players for Teams</legend>';
 				$i = 0;
 				foreach ($users as $key => $value) {
-					echo '<div class="span4">';
+					if ($i === 0) {
+						echo '<div class="row-fluid">';
+					}
+					echo '<div class="span3">';
 					echo $this->BootstrapForm->input('User.' . $i, array(
 						'type' => 'checkbox',
 						'value' => $key,
@@ -34,7 +36,12 @@
 						'hiddenField' => false
 					));
 					echo '</div>';
-					$i++;
+					if ($i === 3) {
+						echo '</div>';
+						$i = 0;
+					} else {
+						$i++;
+					}
 				}
 				echo $this->BootstrapForm->submit('Pick Teams', array(
 					'div' => false,
@@ -42,7 +49,6 @@
 				));
 				echo $this->BootstrapForm->end();
 				?>
-			</div>
 		</div>
 	</div>
 </div>

@@ -84,6 +84,10 @@ div.span-padding {
 	margin-bottom: 15px;
 }
 
+#UserRandomTeamsForm button[type="submit"] {
+	margin-top: 15px;
+}
+
 #GameDashboardForm button[type="submit"] {
 	margin-top: 10px;
 }
