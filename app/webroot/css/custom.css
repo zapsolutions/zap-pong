@@ -192,3 +192,31 @@ div.row-board {
 	width: 250px;
 	margin-left: -125px;
 }
+
+
+@media (min-width: 979px) {
+	form input[type="text"], form input[type="email"] {
+		width: 77%;
+	}
+	#UserDashboardForm button[type="submit"] {
+		width: 96%;
+	}
+	#GameDashboardForm button[type="submit"] {
+		width: 96%;
+	}
+}
+
+@media (max-width: 979px) and (min-width: 768px) {
+	form input[type="text"], form input[type="email"] {
+		width: 45%;
+	}
+	form select {
+		width: 85%;
+	}
+	legend {
+		font-size: 18px;
+	}
+	#UserDashboardForm button[type="submit"] {
+		width: 69%;
+	}
+}
