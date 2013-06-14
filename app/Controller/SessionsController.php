@@ -25,6 +25,7 @@ class SessionsController extends AppController {
                 $this->redirect($this->Auth->loginRedirect);
             } else {
                 $this->Session->setFlash('Invalid login details, please try again.');
+                $this->redirect(array('controller' => 'pages', 'action' => 'display', 'fuck_off'));
             }
         }
         $this->set('title_for_layout', 'Login');

@@ -23,13 +23,14 @@
 				<?php
 				echo $this->BootstrapForm->create('User');
 				echo '<legend>Select Players for Teams</legend>';
+				$k = 0;
 				$i = 0;
 				foreach ($users as $key => $value) {
 					if ($i === 0) {
 						echo '<div class="row-fluid">';
 					}
 					echo '<div class="span3">';
-					echo $this->BootstrapForm->input('User.' . $i, array(
+					echo $this->BootstrapForm->input('User.' . $k, array(
 						'type' => 'checkbox',
 						'value' => $key,
 						'label' => $value,
@@ -42,6 +43,7 @@
 					} else {
 						$i++;
 					}
+					$k++;
 				}
 				echo $this->BootstrapForm->submit('Pick Teams', array(
 					'div' => false,

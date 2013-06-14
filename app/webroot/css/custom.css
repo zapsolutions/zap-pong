@@ -193,6 +193,9 @@ div.row-board {
 	margin-left: -125px;
 }
 
+#UserAllForm input[type="email"] {
+	width: 100% !important;
+}
 
 @media (min-width: 979px) {
 	form input[type="text"], form input[type="email"] {
