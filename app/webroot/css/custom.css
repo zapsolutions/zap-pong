@@ -194,7 +194,7 @@ div.row-board {
 }
 
 #UserAllForm input[type="email"] {
-	width: 100% !important;
+	width: 206px !important;
 }
 
 @media (min-width: 979px) {
@@ -221,5 +221,11 @@ div.row-board {
 	}
 	#UserDashboardForm button[type="submit"] {
 		width: 69%;
+	}
+	#dash-card img.img-polaroid {
+	margin-left: -5px;
+	}
+	#dash-card {
+		padding-top: 0;
 	}
 }
