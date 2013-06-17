@@ -13,7 +13,6 @@ class UsersController extends AppController
 	public function beforeFilter()
 	{
 		parent::beforeFilter();
-		$this->Auth->allow(array('add'));
 	}
 
 /**
@@ -187,13 +186,6 @@ class UsersController extends AppController
 			)
 		));
 		$this->set(compact('user'));
-	}
-
-	public function add()
-	{
-		if ($this->request->is('post')) {
-			$this->User->save($this->request->data);
-		}
 	}
 
 }
