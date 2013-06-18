@@ -10,14 +10,16 @@ class GamesController extends AppController
 
 	public $uses = array('Game', 'User');
 
-	public function beforeFilter()
+	public function isAuthorized($user)
 	{
-		parent::beforeFilter();
-		$this->Auth->allow(array('add', 'view'));
+		if (!empty($user)) {
+			return true;
+		}
+		return parent::isAuthorized($user);
 	}
 
 /**
- * new method
+ * add method
  *
  * @return void
  */

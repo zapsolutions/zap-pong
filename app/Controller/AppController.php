@@ -44,8 +44,8 @@ class AppController extends Controller
         'Session',
         //'Security',
         'Auth' => array(
-            'loginAction'    => array('controller' => 'sessions', 'action' => 'login'),
-            'loginRedirect'  => '/dashboard',
+            'loginAction'    => '/',
+            'loginRedirect'  => array('controller' => 'users', 'action' => 'dashboard'),
             'logoutRedirect' => '/',
             'authorize'      => array('Controller'),
             'authError'      => 'You need to be logged in to view this page.',
@@ -62,10 +62,18 @@ class AppController extends Controller
     {
         return false;
     }
-    
+
     public function beforeFilter()
     {
-        $this->Auth->allow(array('all', 'forgot_password', 'reset_password', 'display', 'alpha_omega', 'load_more'));
+        $this->Auth->allow(array(
+            'all',
+            'forgot_password',
+            'reset_password',
+            'display',
+            'alpha_omega',
+            'login',
+            'logout'
+        ));
     }   
 
 }

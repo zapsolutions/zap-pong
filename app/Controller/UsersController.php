@@ -10,9 +10,12 @@ class UsersController extends AppController
 
 	public $helpers = array('Time');
 
-	public function beforeFilter()
+	public function isAuthorized($user)
 	{
-		parent::beforeFilter();
+		if (!empty($user)) {
+			return true;
+		}
+		return parent::isAuthorized($user);
 	}
 
 /**

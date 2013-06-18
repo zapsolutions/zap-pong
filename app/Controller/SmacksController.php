@@ -7,6 +7,15 @@ App::uses('AppController', 'Controller');
  */
 class SmacksController extends AppController {
 
+
+	public function isAuthorized($user)
+	{
+		if (!empty($user)) {
+			return true;
+		}
+		return parent::isAuthorized($user);
+	}
+
 /**
  * add method
  *
