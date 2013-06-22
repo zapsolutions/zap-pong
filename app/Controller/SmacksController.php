@@ -5,8 +5,8 @@ App::uses('AppController', 'Controller');
  *
  * @property Smack $Smack
  */
-class SmacksController extends AppController {
-
+class SmacksController extends AppController
+{
 
 	public function isAuthorized($user)
 	{
