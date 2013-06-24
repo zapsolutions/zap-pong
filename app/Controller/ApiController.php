@@ -39,4 +39,21 @@ class ApiController extends AppController
 		
 	}
 
+	public function decay($secret = null)
+	{
+		$cronSecret = Configure::read('Cron.secret');
+		if ($secret === null || $secret !== $cronSecret) {
+			throw new MethodNotAllowedException('Derp.');
+		}
+		$users = $this->User->find('all', array(
+			'conditions' => array(
+				'User.modified >=' => //$now + 7 days;
+			)
+		));
+		foreach ($users as $user) {
+			// add decay
+			// update rating
+		}
+	}
+
 }
