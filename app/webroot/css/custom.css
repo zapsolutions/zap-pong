@@ -229,3 +229,12 @@ div.row-board {
 		padding-top: 0;
 	}
 }
+
+@media (max-width: 480px) {
+	td, th {
+		display: none;
+	}
+	td.mobile, th.mobile {
+		display: table-cell;
+	}
+}

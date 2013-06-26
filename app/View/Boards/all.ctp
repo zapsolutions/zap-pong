@@ -4,10 +4,10 @@
 			<h1>Leaderboard</h1>
 			<table id="leaderboard" class="table table-hover table-condensed table-striped">
 				<tr>
-					<th>Rank</th>
-					<th>Rating</th>
-					<th></th>
-					<th>Player</th>
+					<th class="mobile">Rank</th>
+					<th class="mobile">Rating</th>
+					<th class="mobile"></th>
+					<th class="mobile">Player</th>
 					<th>Wins</th>
 					<th>Losses</th>
 					<th>Total</th>
@@ -23,17 +23,17 @@
 				$rank = 1;
 				foreach ($ratings as $rating) {
 					echo '<tr>';
-					echo '<td>' . $rank . '</td>';
-					echo '<td>' . $rating['User']['rating'] . '</td>';
+					echo '<td class="mobile">' . $rank . '</td>';
+					echo '<td class="mobile">' . $rating['User']['rating'] . '</td>';
 					if ($rating['User']['avatar'] !== null) {
-						echo '<td>' . "<a href=\"/files/user/avatar/{$rating['User']['id']}/profile_{$rating['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$rating['User']['id']}/thumb_{$rating['User']['avatar']}\" /></a></td>";
+						echo '<td class="mobile">' . "<a href=\"/files/user/avatar/{$rating['User']['id']}/profile_{$rating['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$rating['User']['id']}/thumb_{$rating['User']['avatar']}\" /></a></td>";
 					} else {
-						echo '<td>' . "<img src=\"/img/anon_thumb.gif\" /></td>";
+						echo '<td class="mobile">' . "<img src=\"/img/anon_thumb.gif\" /></td>";
 					}
 					if ($authenticated === true) {
-						echo '<td>' . $rating['User']['alias'] . '</td>';
+						echo '<td class="mobile">' . $rating['User']['alias'] . '</td>';
 					} else {
-						echo '<td>' . $rating['User']['name'] . '</td>';
+						echo '<td class="mobile">' . $rating['User']['name'] . '</td>';
 					}
 					echo '<td>' . $rating['User']['wins'] . '</td>';
 					echo '<td>' . $rating['User']['losses'] . '</td>';
