@@ -31,7 +31,8 @@ class UsersController extends AppController
 			)
 		));
 		$users = $this->User->find('list', array(
-			'fields' => array('User.name')
+			'fields' => array('User.name'),
+			'order'  => array('User.name ASC')
 		));
 		$this->User->Smack->recursive = 1;
 		$smacks = $this->User->Smack->find('all', array(
@@ -105,6 +106,7 @@ class UsersController extends AppController
 			)
 		));
 		$users = $this->User->find('list', array(
+			'order' => array('User.name ASC'),
 			'fields' => array('User.name')
 		));
 		$this->set('title_for_layout', 'Teams');
