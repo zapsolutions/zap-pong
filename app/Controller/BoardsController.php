@@ -10,7 +10,8 @@ class BoardsController extends AppController
 
 	public $uses = array('Game', 'User');
 
-	public function beforeFilter() {
+	public function beforeFilter()
+	{
 		$this->Auth->allow('all');
 	}
 
@@ -22,6 +23,7 @@ class BoardsController extends AppController
 	public function all()
 	{
 		$loggedIn = $this->Auth->user('id');
+
 		if ($loggedIn !== null) {
 			$user = $this->User->find('first', array(
 				'conditions' => array('User.id' => $loggedIn)
@@ -56,11 +58,11 @@ class BoardsController extends AppController
 				)
 			)
 		));
+		
 		$this->set('title_for_layout', 'Leaderboard');
 		$this->set(compact('ratings', 'sinks', 'hits', 'games'));
 		$this->set('authenticated', $this->Auth->loggedIn());
 
 	}
-
-
+	
 }

@@ -15,6 +15,7 @@ class UsersController extends AppController
 		if (!empty($user)) {
 			return true;
 		}
+		
 		return parent::isAuthorized($user);
 	}
 
@@ -30,15 +31,19 @@ class UsersController extends AppController
 				'User.id' => $this->Auth->user('id')
 			)
 		));
+		
 		$users = $this->User->find('list', array(
 			'fields' => array('User.name'),
 			'order'  => array('User.name ASC')
 		));
+		
 		$this->User->Smack->recursive = 1;
+		
 		$smacks = $this->User->Smack->find('all', array(
 			'order' => 'Smack.created DESC',
 			'limit' => 5
 		));
+		
 		$this->request->data = $user;
 		$this->set('title_for_layout', 'Dashboard');
 		$this->set(compact('user', 'users', 'smacks', 'user_smacks'));
@@ -61,6 +66,7 @@ class UsersController extends AppController
 						'class' => 'alert-success'
 					)
 				);
+		
 				$this->redirect(array('action' => 'dashboard'));
 			} else {
 				$this->Session->setFlash(
@@ -71,6 +77,7 @@ class UsersController extends AppController
 						'class' => 'alert-error'
 					)
 				);
+		
 				$this->redirect(array('action' => 'dashboard'));
 			}
 		} 
@@ -81,6 +88,7 @@ class UsersController extends AppController
 		if ($this->request->is('post')) {
 			$numSelected = count($this->request->data['User']);
 			if ($numSelected !== 4) {
+		
 				$this->Session->setFlash(
 					'You\'ve selected too few or too many players. :-(',
 					'alert',
@@ -89,26 +97,33 @@ class UsersController extends AppController
 						'class' => 'alert-error'
 					)
 				);
+		
 				$this->redirect(array('action' => 'random_teams'));
 			}
+		
 			$players = $this->request->data;
+		
 			$selection = $this->User->find('all', array(
 				'conditions' => array(
 					'User.id' => $players['User']
 				),
 				'order' => 'RAND()'
 			));
+		
 			$this->set(compact('selection'));
 		}
+		
 		$user = $this->User->find('first', array(
 			'conditions' => array(
 				'User.id' => $this->Auth->user('id')
 			)
 		));
+		
 		$users = $this->User->find('list', array(
 			'order' => array('User.name ASC'),
 			'fields' => array('User.name')
 		));
+		
 		$this->set('title_for_layout', 'Teams');
 		$this->set(compact('user', 'users'));
 	}
@@ -118,6 +133,7 @@ class UsersController extends AppController
 		if ($this->request->is('post')) {
 			$data = $this->request->data;
 			$exists = $this->User->findByEmail($data['User']['email']);
+		
 			if (empty($exists)) {
 				$this->Session->setFlash(
 					'We couldn\'t find a user with the email address: \'' . $data['User']['email'] . '\'.',
@@ -127,11 +143,14 @@ class UsersController extends AppController
 						'class' => 'alert-error'
 					)
 				);
+		
 				$this->redirect(array('controller' => 'users', 'action' => 'forgot_password'));
 			}
+		
 			App::uses('String', 'Utility');
 			$secret_token = String::uuid();
 			$this->loadModel('Token');
+		
 			$new_token = array(
 				'Token' => array(
 					'secret' => $secret_token,
@@ -139,6 +158,7 @@ class UsersController extends AppController
 					'foreign_key' => $exists['User']['id']
 				)
 			);
+		
 			$this->Token->save($new_token);
 			$token_id = $this->Token->id;
 			$this->User->sendResetEmail($token_id, $secret_token, $data['User']['email']);
@@ -151,6 +171,7 @@ class UsersController extends AppController
 		$minusOneHour = date('Y-m-d H:i:s', strtotime('-1 hour', time()));
 		$nowHour = date('Y-m-d H:i:s', strtotime('now', time()));
 		$this->loadModel('Token');
+		
 		$valid_token = $this->Token->find('first', array(
 			'conditions' => array(
 				'Token.id'     => $id,
@@ -159,10 +180,13 @@ class UsersController extends AppController
 				'Token.created BETWEEN ? AND ?' => array($minusOneHour, $nowHour)
 			)
 		));
+		
 		if (empty($valid_token)) {
 			throw new NotFoundException('Invalid or expired token.');
 		}
+		
 		$data = $this->request->data;
+		
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->User->save($data)) {
 				$this->Session->setFlash(
@@ -173,6 +197,7 @@ class UsersController extends AppController
 						'class' => 'alert-success'
 					)
 				);
+		
 				$this->redirect('/');
 			} else {
 				$this->Session->setFlash(
@@ -185,11 +210,13 @@ class UsersController extends AppController
 				);
 			}	
 		}
+		
 		$user = $this->User->find('first', array(
 				'conditions' => array(
 				'User.id' => $valid_token['Token']['foreign_key']
 			)
 		));
+		
 		$this->set(compact('user'));
 	}
 

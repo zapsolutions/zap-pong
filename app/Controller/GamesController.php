@@ -25,14 +25,17 @@ class GamesController extends AppController
  */
 	public function add() {
 		if ($this->request->is('post')) {
+
 			$data = $this->request->data;
 			$data['Player'][$data['Action']['key']]['actor'] = true;
 			$data['Player'][$data['Action']['key']]['action'] = $data['Action']['type'];
 			$this->Game->create();
+			
 			if ($this->Game->saveAll($data)) {
 				$this->User->updateStats($data['Player'], $data['Action']['type']);
 				$this->User->updateRatings($data['Player']);
 				$this->User->updateStreaks($data['Player']);
+			
 				$this->Session->setFlash(
 					__('The %s has been saved!', __('game')),
 					'alert',
@@ -41,6 +44,7 @@ class GamesController extends AppController
 						'class' => 'alert-success'
 					)
 				);
+			
 				$this->redirect('/');
 			} else {
 				$this->Session->setFlash(
@@ -57,6 +61,7 @@ class GamesController extends AppController
 				'fields' => array('name'),
 				'order'  => array('User.name ASC')
 			));
+			
 			$this->set(compact('users'));
 		}
 	}
