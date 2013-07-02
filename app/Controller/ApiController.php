@@ -62,7 +62,7 @@ class ApiController extends AppController
 		}
 	
 		$this->loadModel('Game');
-		//$this->Game->updateRatings();
+		$this->Game->updateRatings($users);
 	}
 
 }
