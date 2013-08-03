@@ -44,7 +44,7 @@ class ApiController extends AppController
 		$cronSecret = Configure::read('Cron.secret');
 
 		if ($secret === null || $secret !== $cronSecret) {
-			throw new MethodNotAllowedException('Derp.');
+			throw new MethodNotAllowedException('');
 		}
 
 		$oneWeekAgo = date ('Y-m-d H:i:s', strtotime ('-1 week', time())); 
