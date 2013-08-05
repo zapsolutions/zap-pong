@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('Security', 'Utility');
 /**
  * Users Controller
  *
@@ -148,20 +149,20 @@ class UsersController extends AppController
 			}
 		
 			App::uses('String', 'Utility');
-			$secret_token = String::uuid();
+			$secretToken = Security::hash(String::uuid(), 'sha256');
 			$this->loadModel('Token');
 		
-			$new_token = array(
+			$newToken = array(
 				'Token' => array(
-					'secret' => $secret_token,
+					'secret' => $secretToken,
 					'model' => 'User',
 					'foreign_key' => $exists['User']['id']
 				)
 			);
 		
-			$this->Token->save($new_token);
-			$token_id = $this->Token->id;
-			$this->User->sendResetEmail($token_id, $secret_token, $data['User']['email']);
+			$this->Token->save($newToken);
+			$tokenID = $this->Token->id;
+			$this->User->sendResetEmail($tokenID, $secretToken, $data['User']['email']);
 			$this->redirect(array('controller' => 'pages', 'action' => 'reset'));
 		}
 	}

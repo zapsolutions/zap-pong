@@ -23,9 +23,9 @@ class GamesController extends AppController
  *
  * @return void
  */
-	public function add() {
+	public function add()
+	{
 		if ($this->request->is('post')) {
-
 			$data = $this->request->data;
 			$data['Player'][$data['Action']['key']]['actor'] = true;
 			$data['Player'][$data['Action']['key']]['action'] = $data['Action']['type'];
