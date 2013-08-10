@@ -1,3 +1,8 @@
+<Files  "cron_dispatcher.php">
+    Order deny,allow
+    Deny from all
+</Files>
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-d
