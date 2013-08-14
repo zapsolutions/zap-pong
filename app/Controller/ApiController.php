@@ -10,6 +10,11 @@ class ApiController extends AppController
 
 	public $uses = array('User');
 
+	public function beforeFilter()
+	{
+		$this->Auth->allow('alpha_omega');
+	}
+
 /**
  * alpha_and_omega method
  *
