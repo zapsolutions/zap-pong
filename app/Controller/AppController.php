@@ -44,7 +44,6 @@ class AppController extends Controller
     
     public $components = array(
         'Session',
-        //'Security',
         'Auth' => array(
             'loginAction'    => '/',
             'loginRedirect'  => array('controller' => 'users', 'action' => 'dashboard'),
@@ -54,7 +53,6 @@ class AppController extends Controller
             'authenticate'   => array(
                 'Blowfish'   => array(
                     'fields' => array('username' => 'email'),
-                    //'scope'  => array('User.active' => 1)
                 )
             )
         )

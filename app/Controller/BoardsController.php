@@ -12,7 +12,7 @@ class BoardsController extends AppController
 
 	public function beforeFilter()
 	{
-		$this->Auth->allow('all');
+		parent::beforeFilter();
 	}
 
 /**
