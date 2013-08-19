@@ -7,6 +7,11 @@ App::uses('AppController', 'Controller');
 
 class SessionsController extends AppController {
 
+/**
+ * login method
+ *
+ * @return void
+ */
     public function login()
     {
         if ($this->request->is('post')) {
@@ -27,6 +32,11 @@ class SessionsController extends AppController {
         $this->set('title_for_layout', 'Login');
     }
 
+/**
+ * logout method
+ *
+ * @return void
+ */
     public function logout()
     {
         $this->Session->destroy();

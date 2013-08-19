@@ -10,6 +10,11 @@ class CronController extends AppController
 
 	public $uses = array('User', 'Game');
 
+/**
+ * decay method
+ *
+ * @return void
+ */
 	public function decay($secret = null)
 	{
 		$cronSecret = Configure::read('Cron.secret');

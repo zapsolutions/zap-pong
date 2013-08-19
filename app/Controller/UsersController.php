@@ -84,6 +84,11 @@ class UsersController extends AppController
 		} 
 	}
 
+/**
+ * random_teams method
+ *
+ * @return void
+ */
 	public function random_teams()
 	{
 		if ($this->request->is('post')) {
@@ -129,6 +134,11 @@ class UsersController extends AppController
 		$this->set(compact('user', 'users'));
 	}
 
+/**
+ * forgot_password method
+ *
+ * @return void
+ */
 	public function forgot_password()
 	{
 		if ($this->request->is('post')) {
@@ -167,6 +177,11 @@ class UsersController extends AppController
 		}
 	}
 
+/**
+ * reset_password method
+ *
+ * @return void
+ */
 	public function reset_password($id = null, $secret = null)
 	{
 		$minusOneHour = date('Y-m-d H:i:s', strtotime('-1 hour', time()));
