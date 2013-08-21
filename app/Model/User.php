@@ -127,6 +127,11 @@ class User extends AppModel
         return true;
     }
 
+/**
+ * sendResetEmail method
+ *
+ * @return void
+ */
 	public function sendResetEmail($id = null, $secret = null, $email_address = null) {
 		$email = new CakeEmail();
 		$email->config('default');
@@ -143,6 +148,11 @@ class User extends AppModel
 		$email->send();
 	}
 
+/**
+ * confirmPasword method
+ *
+ * @return void
+ */
     public function confirmPassword()
     { 
     	if ($this->data[$this->alias]['password'] == $this->data[$this->alias]['password_confirm']) {

@@ -29,6 +29,11 @@ class Game extends AppModel
 		)
 	);
 
+/**
+ * updateRatings method
+ *
+ * @return void
+ */
 	public function updateRatings($players = array())
 	{
 		foreach ($players as $player) {
@@ -54,6 +59,11 @@ class Game extends AppModel
 		}
 	}
 
+/**
+ * updateStats method
+ *
+ * @return void
+ */
 	public function updateStats($players = array(), $action = null)
 	{
 		foreach ($players as $player) {
@@ -77,6 +87,11 @@ class Game extends AppModel
 		}
 	}
 
+/**
+ * updateStreaks method
+ *
+ * @return void
+ */
 	public function updateStreaks($players = array())
 	{
 		foreach ($players as $player) {
