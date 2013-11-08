@@ -39,7 +39,7 @@
 					echo '<tr>';
 					echo '<td class="mobile rank">' . '<span class="badge '. $badge . '">' . $rank . '</span></td>';
 					echo '<td class="mobile">' . $rating['User']['rating'] . '</td>';
-					if ($rating['User']['avatar'] !== null || empty($rating['User']['avatar'])) {
+					if ($rating['User']['avatar'] !== null) {
 						echo '<td class="mobile">' . "<a href=\"/files/user/avatar/{$rating['User']['id']}/profile_{$rating['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$rating['User']['id']}/thumb_{$rating['User']['avatar']}\" /></a></td>";
 					} else {
 						echo '<td class="mobile">' . "<img src=\"/img/anon_thumb.gif\" /></td>";
@@ -106,7 +106,7 @@
 						}
 					}
 					foreach ($winners as $winner) {
-						if ($winner['User']['avatar'] !== null  || empty($rating['User']['avatar'])) {
+						if ($winner['User']['avatar'] !== null) {
 							$userAvatar = "<a href=\"/files/user/avatar/{$winner['User']['id']}/profile_{$winner['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$winner['User']['id']}/thumb_{$winner['User']['avatar']}\" /></a>";
 						} else {
 							$userAvatar =  "<img src=\"/img/anon_thumb.gif\" /></td>";
@@ -118,7 +118,7 @@
 						}
 					}
 					foreach ($losers as $loser) {
-						if ($loser['User']['avatar'] !== null || empty($rating['User']['avatar'])) {
+						if ($loser['User']['avatar'] !== null) {
 							$userAvatar = "<a href=\"/files/user/avatar/{$loser['User']['id']}/profile_{$loser['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$loser['User']['id']}/thumb_{$loser['User']['avatar']}\" /></a>";
 						} else {
 							$userAvatar =  "<img src=\"/img/anon_thumb.gif\" /></td>";
@@ -129,7 +129,7 @@
 							echo '<td class="loser">' . $userAvatar . ' ' . $loser['User']['name'] . '</td>';
 						}
 					}
-					if ($actor['User']['avatar'] !== null || empty($rating['User']['avatar'])) {
+					if ($actor['User']['avatar'] !== null) {
 						$userAvatar = "<a href=\"/files/user/avatar/{$actor['User']['id']}/profile_{$actor['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$actor['User']['id']}/thumb_{$actor['User']['avatar']}\" /></a>";
 					} else {
 						$userAvatar =  "<img src=\"/img/anon_thumb.gif\" /></td>";
