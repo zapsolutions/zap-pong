@@ -93,24 +93,24 @@
 					}
 					foreach ($winners as $winner) {
 						if ($authenticated === true) {
-							echo '<td>' . $winner['User']['alias'] . '</td>';
+							echo '<td class="winner">' . $winner['User']['alias'] . '</td>';
 						} else {
-							echo '<td>' . $winner['User']['name'] . '</td>';
+							echo '<td class="winner">' . $winner['User']['name'] . '</td>';
 						}
 					}
 					foreach ($losers as $loser) {
 						if ($authenticated === true) {
-							echo '<td>' . $loser['User']['alias'] . '</td>';
+							echo '<td class="loser">' . $loser['User']['alias'] . '</td>';
 						} else {
-							echo '<td>' . $loser['User']['name'] . '</td>';
+							echo '<td class="loser">' . $loser['User']['name'] . '</td>';
 						}
 					}
 					if ($authenticated === true) {
-						echo '<td>' . $actor['User']['alias'] . '</td>';
+						echo '<td class="actor">' . $actor['User']['alias'] . '</td>';
 					} else {
-						echo '<td>' . $actor['User']['name'] . '</td>';
+						echo '<td class="actor">' . $actor['User']['name'] . '</td>';
 					}
-					echo '<td>' . ucwords($actor['action']) . '</td>';
+					echo '<td class="action">' . ucwords($actor['action']) . '</td>';
 					echo '<td>' . $this->Time->timeAgoInWords($game['Game']['created']) . '</td>';
 					echo '</tr>';
 				}

@@ -197,6 +197,25 @@ div.row-board {
 	width: 206px !important;
 }
 
+td.winner {
+	color: #FF00FF;
+	font-weight: bold;
+}
+
+td.loser {
+	color: #FF0000;
+	font-weight: bold;
+}
+
+td.actor {
+	color: #FFFF00;
+	font-weight: bold;
+}
+
+td.action {
+	font-weight: bold;
+}
+
 @media (min-width: 979px) {
 	form input[type="text"], form input[type="email"] {
 		width: 77%;
