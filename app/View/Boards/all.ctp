@@ -33,7 +33,7 @@
 							break;
 						case 3:
 							$badge = 'badge-bronze';
-							$color = 'bronze;'
+							$color = 'bronze';
 							break;
 						default:
 							$badge = 'badge-inverse';
