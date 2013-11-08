@@ -198,7 +198,7 @@ div.row-board {
 }
 
 td.winner {
-	color: #FF00FF;
+	color: #008000;
 	font-weight: bold;
 }
 
@@ -208,7 +208,7 @@ td.loser {
 }
 
 td.actor {
-	color: #FFFF00;
+	color: #00FF00;
 	font-weight: bold;
 }
 
