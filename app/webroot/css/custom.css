@@ -233,6 +233,18 @@ td.action {
 	background-color: #CD7F32;
 }
 
+#leaderboard td:nth-child(1) {
+	font-size: 14px;
+}
+
+#leaderboard td:nth-child(2) {
+	font-size: 13px;
+}
+
+#leaderboard td:nth-child(3) {
+	font-size: 12px;
+}
+
 @media (min-width: 979px) {
 	form input[type="text"], form input[type="email"] {
 		width: 77%;
