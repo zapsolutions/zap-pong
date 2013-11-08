@@ -44,7 +44,7 @@
 					echo '<tr>';
 					echo '<td class="mobile rank">' . '<span class="badge '. $badge . '">' . $rank . '</span></td>';
 					echo '<td class="mobile">' . $rating['User']['rating'] . '</td>';
-					if ($rank !== $ratingCount ) {
+					if ($rank !== $ratingsCount ) {
 						if ($rating['User']['avatar'] !== null) {
 							echo '<td class="mobile">' . "<a href=\"/files/user/avatar/{$rating['User']['id']}/profile_{$rating['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$rating['User']['id']}/thumb_{$rating['User']['avatar']}\" /></a></td>";
 						} else {
