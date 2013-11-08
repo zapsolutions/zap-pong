@@ -225,7 +225,7 @@ td.action {
 	background-color: #FFD700;
 }
 
-td.gold {
+tr.gold {
 	color: #FFD700;
 }
 
@@ -233,7 +233,7 @@ td.gold {
 	background-color: #C0C0C0;
 }
 
-td.silver {
+tr.silver {
 	color: #C0C0C0;
 }
 
@@ -241,7 +241,7 @@ td.silver {
 	background-color: #CD7F32;
 }
 
-td.bronze {
+tr.bronze {
 	color: #CD7F32;
 }
 

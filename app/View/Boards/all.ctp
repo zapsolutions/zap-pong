@@ -41,7 +41,7 @@
 							$color = '';
 							break;
 					}
-					echo '<tr>';
+					echo '<tr class="' . $color . '">';
 					echo '<td class="mobile rank">' . '<span class="badge '. $badge . '">' . $rank . '</span></td>';
 					echo '<td class="mobile">' . $rating['User']['rating'] . '</td>';
 					if ($rank !== $ratingsCount ) {
