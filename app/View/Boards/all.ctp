@@ -24,16 +24,16 @@
 				foreach ($ratings as $rating) {
 					switch ($rank) {
 						case 1:
-							$badge = 'badge-warning';
+							$badge = 'badge-gold';
 							break;
 						case 2:
 							$badge = '';
 							break;
 						case 3:
-							$badge = 'badge-important';
+							$badge = 'badge-silver';
 							break;
 						default:
-							$badge = 'badge-inverse';
+							$badge = 'badge-bronze';
 							break;
 					}
 					echo '<tr>';

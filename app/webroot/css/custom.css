@@ -221,6 +221,18 @@ td.action {
 	height: 16px;
 }
 
+.badge-gold {
+	background-color: #FFD700;
+}
+
+.badge-silver {
+	background-color: #C0C0C0;
+}
+
+.badge-bronze {
+	background-color: #CD7F32;
+}
+
 @media (min-width: 979px) {
 	form input[type="text"], form input[type="email"] {
 		width: 77%;
