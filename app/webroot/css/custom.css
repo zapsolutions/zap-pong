@@ -235,14 +235,17 @@ td.action {
 
 #leaderboard tr:nth-child(2) {
 	font-size: 17px;
+	font-weight: bold;
 }
 
 #leaderboard tr:nth-child(3) {
 	font-size: 15px;
+	font-weight: bold;
 }
 
 #leaderboard tr:nth-child(4) {
 	font-size: 13px;
+	font-weight: bold;
 }
 
 @media (min-width: 979px) {
