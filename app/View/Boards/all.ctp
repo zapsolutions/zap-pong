@@ -149,7 +149,7 @@
 						echo '<td class="actor">' . $userAvatar . ' ' . $actor['User']['name'] . '</td>';
 					}
 					echo '<td class="action">' . ucwords($actor['action']) . '</td>';
-					echo '<td>' . $this->Time->timeAgoInWords($game['Game']['created']) . '</td>';
+					echo '<td>' . $this->Time->timeAgoInWords($game['Game']['created'], array('end' => '+1 year')) . '</td>';
 					echo '</tr>';
 				}
 				?>

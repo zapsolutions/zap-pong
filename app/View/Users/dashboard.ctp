@@ -149,7 +149,7 @@
 					<div id="smack-box">
 					<?php
 					foreach ($smacks as $smack) {
-						$timeAgo = $this->Time->timeAgoInWords($smack['Smack']['created']);
+						$timeAgo = $this->Time->timeAgoInWords($smack['Smack']['created'], array('end' => '+1 year'));
 						if ($smack['Smack']['anonymity'] === true) {
 							echo "<p><i class=\"icon-eye-close\"></i>&nbsp;<em>Anonymous said...</em> ({$timeAgo})</p>";
 						} elseif ($smack['Smack']['anonymity'] === false) {
@@ -182,14 +182,6 @@
 						'class' => 'span12',
 						'label' => 'Message:'
 					));
-					/*
-					echo $this->BootstrapForm->input('tags', array(
-						'div' => false,
-						'before'  => '<div class="input-space input-prepend"><span class="add-on">Tags</span>',
-						'after' => '</div>',
-						'label' => false
-					));
-					*/
 					echo $this->BootstrapForm->input('anonymity', array(
 						'div' => false,
 						'label' => 'Talk Smack Anonymously?'

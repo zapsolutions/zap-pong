@@ -1,6 +1,6 @@
 <?php
 foreach ($smacks as $smack) {
-	$timeAgo = $this->Time->timeAgoInWords($smack['Smack']['created']);
+	$timeAgo = $this->Time->timeAgoInWords($smack['Smack']['created'], array('end' => '+1 year'));
 	if ($smack['Smack']['anonymity'] === true) {
 		echo "<p><i class=\"icon-eye-close\"></i>&nbsp;<em>Anonymous said...</em> ({$timeAgo})</p>";
 	} elseif ($smack['Smack']['anonymity'] === false) {
