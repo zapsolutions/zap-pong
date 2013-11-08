@@ -225,12 +225,24 @@ td.action {
 	background-color: #FFD700;
 }
 
+td.gold {
+	color: #FFD700;
+}
+
 .badge-silver {
 	background-color: #C0C0C0;
 }
 
+td.silver {
+	color: #C0C0C0;
+}
+
 .badge-bronze {
 	background-color: #CD7F32;
+}
+
+td.bronze {
+	color: #CD7F32;
 }
 
 #leaderboard tr:nth-child(2) {

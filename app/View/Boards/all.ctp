@@ -25,15 +25,19 @@
 					switch ($rank) {
 						case 1:
 							$badge = 'badge-gold';
+							$color = 'gold';
 							break;
 						case 2:
 							$badge = 'badge-silver';
+							$color = 'silver';
 							break;
 						case 3:
 							$badge = 'badge-bronze';
+							$color = 'bronze;'
 							break;
 						default:
 							$badge = 'badge-inverse';
+							$color = '';
 							break;
 					}
 					echo '<tr>';
@@ -45,9 +49,9 @@
 						echo '<td class="mobile">' . "<img src=\"/img/anon_thumb.gif\" /></td>";
 					}
 					if ($authenticated === true) {
-						echo '<td class="mobile">' . $rating['User']['alias'] . '</td>';
+						echo '<td class="mobile ' . $color . '">' . $rating['User']['alias'] . '</td>';
 					} else {
-						echo '<td class="mobile">' . $rating['User']['name'] . '</td>';
+						echo '<td class="mobile ' . $color . '">' . $rating['User']['name'] . '</td>';
 					}
 					echo '<td>' . $rating['User']['wins'] . '</td>';
 					echo '<td>' . $rating['User']['losses'] . '</td>';
