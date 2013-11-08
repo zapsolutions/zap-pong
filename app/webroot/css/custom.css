@@ -245,6 +245,11 @@ td.bronze {
 	color: #CD7F32;
 }
 
+td.stinker img {
+	width: 50%;
+	height: 50%;
+}
+
 #leaderboard tr:nth-child(2) {
 	font-size: 17px;
 	font-weight: bold;

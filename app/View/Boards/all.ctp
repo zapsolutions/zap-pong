@@ -51,7 +51,7 @@
 							echo '<td class="mobile">' . "<img src=\"/img/anon_thumb.gif\" /></td>";
 						}
 					} else {
-						echo '<td class="mobile">' . "<img src=\"/img/stinker.gif\" /></td>";
+						echo '<td class="mobile stinker">' . "<img src=\"/img/stinker.gif\" /></td>";
 					}
 					if ($authenticated === true) {
 						echo '<td class="mobile ' . $color . '">' . $rating['User']['alias'] . '</td>';
