@@ -51,7 +51,6 @@ class BoardsController extends AppController
 			'order' => array(
 				'Game.created DESC'
 			),
-			'limit' => 10,
 			'contain' => array(
 				'Player' => array(
 					'User'
