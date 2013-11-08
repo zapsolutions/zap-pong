@@ -233,15 +233,15 @@ td.action {
 	background-color: #CD7F32;
 }
 
-#leaderboard td:nth-child(1) {
+#leaderboard tr:nth-child(2) {
 	font-size: 14px;
 }
 
-#leaderboard td:nth-child(2) {
+#leaderboard tr:nth-child(3) {
 	font-size: 13px;
 }
 
-#leaderboard td:nth-child(3) {
+#leaderboard tr:nth-child(4) {
 	font-size: 12px;
 }
 
