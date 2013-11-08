@@ -93,7 +93,7 @@
 					}
 					foreach ($winners as $winner) {
 						if ($winner['User']['avatar'] !== null) {
-							$userAvatar = "<a href=\"/files/user/avatar/{$winner['User']['id']}/profile_{$winner['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$winner['User']['id']}/thumb_{$winner['User']['avatar']}\" /></a></td>";
+							$userAvatar = "<a href=\"/files/user/avatar/{$winner['User']['id']}/profile_{$winner['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$winner['User']['id']}/thumb_{$winner['User']['avatar']}\" /></a><";
 						} else {
 							$userAvatar =  "<img src=\"/img/anon_thumb.gif\" /></td>";
 						}
@@ -105,7 +105,7 @@
 					}
 					foreach ($losers as $loser) {
 						if ($loser['User']['avatar'] !== null) {
-							$userAvatar = "<a href=\"/files/user/avatar/{$loser['User']['id']}/profile_{$loser['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$loser['User']['id']}/thumb_{$loser['User']['avatar']}\" /></a></td>";
+							$userAvatar = "<a href=\"/files/user/avatar/{$loser['User']['id']}/profile_{$loser['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$loser['User']['id']}/thumb_{$loser['User']['avatar']}\" /></a>";
 						} else {
 							$userAvatar =  "<img src=\"/img/anon_thumb.gif\" /></td>";
 						}
@@ -116,7 +116,7 @@
 						}
 					}
 					if ($actor['User']['avatar'] !== null) {
-						$userAvatar = "<a href=\"/files/user/avatar/{$actor['User']['id']}/profile_{$actor['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$actor['User']['id']}/thumb_{$actor['User']['avatar']}\" /></a></td>";
+						$userAvatar = "<a href=\"/files/user/avatar/{$actor['User']['id']}/profile_{$actor['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$actor['User']['id']}/thumb_{$actor['User']['avatar']}\" /></a>";
 					} else {
 						$userAvatar =  "<img src=\"/img/anon_thumb.gif\" /></td>";
 					}
