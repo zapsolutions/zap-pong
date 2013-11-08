@@ -216,6 +216,11 @@ td.action {
 	font-weight: bold;
 }
 
+td.rank {
+	font-size: 20px;
+	font-weight: bold;
+}
+
 @media (min-width: 979px) {
 	form input[type="text"], form input[type="email"] {
 		width: 77%;

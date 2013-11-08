@@ -23,7 +23,7 @@
 				$rank = 1;
 				foreach ($ratings as $rating) {
 					echo '<tr>';
-					echo '<td class="mobile">' . $rank . '</td>';
+					echo '<td class="mobile rank">' . $rank . '</td>';
 					echo '<td class="mobile">' . $rating['User']['rating'] . '</td>';
 					if ($rating['User']['avatar'] !== null) {
 						echo '<td class="mobile">' . "<a href=\"/files/user/avatar/{$rating['User']['id']}/profile_{$rating['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$rating['User']['id']}/thumb_{$rating['User']['avatar']}\" /></a></td>";
