@@ -93,7 +93,7 @@
 					}
 					foreach ($winners as $winner) {
 						if ($winner['User']['avatar'] !== null) {
-							$userAvatar = "<a href=\"/files/user/avatar/{$winnner['User']['id']}/profile_{$winnner['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$winnner['User']['id']}/thumb_{$winnner['User']['avatar']}\" /></a></td>";
+							$userAvatar = "<a href=\"/files/user/avatar/{$winner['User']['id']}/profile_{$winner['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$winner['User']['id']}/thumb_{$winner['User']['avatar']}\" /></a></td>";
 						} else {
 							$userAvatar =  "<img src=\"/img/anon_thumb.gif\" /></td>";
 						}
