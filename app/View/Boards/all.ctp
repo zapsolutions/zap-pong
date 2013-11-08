@@ -20,6 +20,7 @@
 					<th>Streak</th>
 				</tr>
 				<?php
+				$ratingsCount = count($ratings);
 				$rank = 1;
 				foreach ($ratings as $rating) {
 					switch ($rank) {
@@ -43,10 +44,14 @@
 					echo '<tr>';
 					echo '<td class="mobile rank">' . '<span class="badge '. $badge . '">' . $rank . '</span></td>';
 					echo '<td class="mobile">' . $rating['User']['rating'] . '</td>';
-					if ($rating['User']['avatar'] !== null) {
-						echo '<td class="mobile">' . "<a href=\"/files/user/avatar/{$rating['User']['id']}/profile_{$rating['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$rating['User']['id']}/thumb_{$rating['User']['avatar']}\" /></a></td>";
+					if ($rank !== $ratingCount ) {
+						if ($rating['User']['avatar'] !== null) {
+							echo '<td class="mobile">' . "<a href=\"/files/user/avatar/{$rating['User']['id']}/profile_{$rating['User']['avatar']}\" class=\"img-modal\"><img src=\"/files/user/avatar/{$rating['User']['id']}/thumb_{$rating['User']['avatar']}\" /></a></td>";
+						} else {
+							echo '<td class="mobile">' . "<img src=\"/img/anon_thumb.gif\" /></td>";
+						}
 					} else {
-						echo '<td class="mobile">' . "<img src=\"/img/anon_thumb.gif\" /></td>";
+						echo '<td class="mobile">' . "<img src=\"/img/stinker.gif\" /></td>";
 					}
 					if ($authenticated === true) {
 						echo '<td class="mobile ' . $color . '">' . $rating['User']['alias'] . '</td>';
