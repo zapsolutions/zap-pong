@@ -27,13 +27,13 @@
 							$badge = 'badge-gold';
 							break;
 						case 2:
-							$badge = '';
-							break;
-						case 3:
 							$badge = 'badge-silver';
 							break;
-						default:
+						case 3:
 							$badge = 'badge-bronze';
+							break;
+						default:
+							$badge = 'badge-inverse';
 							break;
 					}
 					echo '<tr>';
