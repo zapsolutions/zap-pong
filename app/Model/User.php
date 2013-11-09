@@ -132,18 +132,18 @@ class User extends AppModel {
  */
 	public function sendResetEmail($id = null, $secret = null, $email_address = null) {
 		$email = new CakeEmail();
-		$email->config('default');
-		$email->viewVars(array(
-			'id' => $id,
-			'secret' => $secret
-		));
-		$email->template('reset_password');
-    	$email->emailFormat('html');
-		$email->sender('no-replay@pong.zapsolutions.com', 'ZAP Pong');
-		$email->from(array('no-replay@pong.zapsolutions.com' => 'ZAP Pong'));
-		$email->to($email_address);
-		$email->subject('ZAP Pong Password Reset');
-		$email->send();
+		$email->config('default')
+			->viewVars(array(
+				'id' => $id,
+				'secret' => $secret
+			))
+			->template('reset_password')
+    		->emailFormat('html')
+			->sender('no-replay@pong.zapsolutions.com', 'ZAP Pong')
+			->from(array('no-replay@pong.zapsolutions.com' => 'ZAP Pong'))
+			->to($email_address)
+			->subject('ZAP Pong Password Reset')
+			->send();
 	}
 
 /**
