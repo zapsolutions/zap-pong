@@ -5,11 +5,9 @@ App::uses('AppController', 'Controller');
  *
  * @property Smack $Smack
  */
-class SmacksController extends AppController
-{
+class SmacksController extends AppController {
 
-	public function isAuthorized($user)
-	{
+	public function isAuthorized($user) {
 		if (!empty($user)) {
 			return true;
 		}
@@ -21,8 +19,7 @@ class SmacksController extends AppController
  *
  * @return void
  */
-	public function add()
-	{
+	public function add() {
 		if ($this->request->is('post')) {
 			$this->Smack->create();
 			if ($this->Smack->save($this->request->data)) {
@@ -56,8 +53,7 @@ class SmacksController extends AppController
  *
  * @return void
  */
-	public function load_more($offset = null)
-	{
+	public function load_more($offset = null) {
 		$this->Smack->recursive = 1;
 		$smacks = $this->Smack->find('all', array(
 			'order' => 'Smack.created DESC',

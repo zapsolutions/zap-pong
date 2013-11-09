@@ -5,8 +5,7 @@ App::uses('AppModel', 'Model');
  *
  * @property Users $Users
  */
-class Smack extends AppModel
-{
+class Smack extends AppModel {
 
 /**
  * Validation rules

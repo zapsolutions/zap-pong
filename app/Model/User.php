@@ -6,8 +6,7 @@ App::uses('CakeEmail', 'Network/Email');
  *
  * @property Player $Player
  */
-class User extends AppModel
-{
+class User extends AppModel {
 
 /**
  * Validation rules
@@ -118,8 +117,7 @@ class User extends AppModel
  * @param array $options
  * @return bool
  */
-    public function beforeSave($options = array())
-    {
+    public function beforeSave($options = array()) {
         if (isset($this->data['User']['password'])) {
             $hash = Security::hash($this->data['User']['password'], 'blowfish');
             $this->data['User']['password'] = $hash;
@@ -153,8 +151,7 @@ class User extends AppModel
  *
  * @return void
  */
-    public function confirmPassword()
-    { 
+    public function confirmPassword() { 
     	if ($this->data[$this->alias]['password'] == $this->data[$this->alias]['password_confirm']) {
     		return true;
     	}
@@ -166,8 +163,7 @@ class User extends AppModel
  *
  * @return void
  */
-	public function updateRatings($players = array())
-	{
+	public function updateRatings($players = array()) {
 		foreach ($players as $player) {
 			$user = $this->find('first', array(
 				'conditions' => array(
@@ -196,8 +192,7 @@ class User extends AppModel
  *
  * @return void
  */
-	public function updateStats($players = array(), $action = null)
-	{
+	public function updateStats($players = array(), $action = null) {
 		foreach ($players as $player) {
 			if ($player['result'] === '0') {
 				$this->id = $player['user_id'];
@@ -224,8 +219,7 @@ class User extends AppModel
  *
  * @return void
  */
-	public function updateStreaks($players = array())
-	{
+	public function updateStreaks($players = array()) {
 		foreach ($players as $player) {
 			$user = $this->find('first', array(
 				'conditions' => array(

@@ -6,8 +6,7 @@ App::uses('AppModel', 'Model');
  * @property User $User
  * @property Game $Game
  */
-class Player extends AppModel
-{
+class Player extends AppModel {
 
 /**
  * Validation rules

@@ -6,13 +6,11 @@ App::uses('Security', 'Utility');
  *
  * @property User $User
  */
-class UsersController extends AppController
-{
+class UsersController extends AppController {
 
 	public $helpers = array('Time');
 
-	public function isAuthorized($user)
-	{
+	public function isAuthorized($user) {
 		if (!empty($user)) {
 			return true;
 		}
@@ -25,8 +23,7 @@ class UsersController extends AppController
  *
  * @return void
  */
-	public function dashboard()
-	{
+	public function dashboard() {
 		$user = $this->User->find('first', array(
 			'conditions' => array(
 				'User.id' => $this->Auth->user('id')
@@ -55,8 +52,7 @@ class UsersController extends AppController
  *
  * @return void
  */
-	public function edit()
-	{
+	public function edit() {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash(
@@ -89,8 +85,7 @@ class UsersController extends AppController
  *
  * @return void
  */
-	public function random_teams()
-	{
+	public function random_teams() {
 		if ($this->request->is('post')) {
 			$numSelected = count($this->request->data['User']);
 			if ($numSelected !== 4) {
@@ -139,8 +134,7 @@ class UsersController extends AppController
  *
  * @return void
  */
-	public function forgot_password()
-	{
+	public function forgot_password() {
 		if ($this->request->is('post')) {
 			$data = $this->request->data;
 			$exists = $this->User->findByEmail($data['User']['email']);
@@ -182,8 +176,7 @@ class UsersController extends AppController
  *
  * @return void
  */
-	public function reset_password($id = null, $secret = null)
-	{
+	public function reset_password($id = null, $secret = null) {
 		$minusOneHour = date('Y-m-d H:i:s', strtotime('-1 hour', time()));
 		$nowHour = date('Y-m-d H:i:s', strtotime('now', time()));
 		$this->loadModel('Token');

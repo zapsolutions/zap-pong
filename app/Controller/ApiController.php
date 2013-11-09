@@ -10,8 +10,7 @@ class ApiController extends AppController
 
 	public $uses = array('User');
 
-	public function beforeFilter()
-	{
+	public function beforeFilter() {
 		$this->Auth->allow('alpha_omega');
 	}
 
@@ -20,8 +19,7 @@ class ApiController extends AppController
  *
  * @return void
  */
-	public function alpha_omega()
-	{
+	public function alpha_omega() {
 
 		$champion = $this->User->find('all', array(
 			'conditions' => array('User.active' => 1),

@@ -5,8 +5,7 @@ App::uses('AppController', 'Controller');
  *
  * @property User $User
  */
-class CronController extends AppController
-{
+class CronController extends AppController {
 
 	public $uses = array('User', 'Game');
 
@@ -15,8 +14,7 @@ class CronController extends AppController
  *
  * @return void
  */
-	public function decay($secret = null)
-	{
+	public function decay($secret = null) {
 		$cronSecret = Configure::read('Cron.secret');
 
 		if ($secret === null || $secret !== $cronSecret) {

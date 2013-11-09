@@ -5,8 +5,7 @@ App::uses('AppModel', 'Model');
  *
  * @property Player $Player
  */
-class Game extends AppModel
-{
+class Game extends AppModel {
 
 /**
  * hasMany associations

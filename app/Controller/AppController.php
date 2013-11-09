@@ -31,8 +31,8 @@ App::uses('Controller', 'Controller');
  * @package		app.Controller
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
-class AppController extends Controller
-{
+class AppController extends Controller {
+    
 	public $layout = 'bootstrap';
 
 	public $helpers = array(
@@ -58,13 +58,11 @@ class AppController extends Controller
         )
     );
 
-    public function isAuthorized($user) 
-    {
+    public function isAuthorized($user) {
         return false;
     }
 
-    public function beforeFilter()
-    {
+    public function beforeFilter() {
         $this->Auth->allow(array(
             'all',
             'forgot_password',

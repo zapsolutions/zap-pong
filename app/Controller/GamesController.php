@@ -5,13 +5,11 @@ App::uses('AppController', 'Controller');
  *
  * @property Game $Game
  */
-class GamesController extends AppController
-{
+class GamesController extends AppController {
 
 	public $uses = array('Game', 'User');
 
-	public function isAuthorized($user)
-	{
+	public function isAuthorized($user) {
 		if (!empty($user)) {
 			return true;
 		}
@@ -23,8 +21,7 @@ class GamesController extends AppController
  *
  * @return void
  */
-	public function add()
-	{
+	public function add() {
 		if ($this->request->is('post')) {
 			$data = $this->request->data;
 			$data['Player'][$data['Action']['key']]['actor'] = true;

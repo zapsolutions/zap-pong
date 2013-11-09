@@ -12,8 +12,7 @@ class SessionsController extends AppController {
  *
  * @return void
  */
-    public function login()
-    {
+    public function login() {
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
                 $user = $this->Auth->user();
@@ -37,8 +36,7 @@ class SessionsController extends AppController {
  *
  * @return void
  */
-    public function logout()
-    {
+    public function logout() {
         $this->Session->destroy();
         $this->redirect($this->Auth->logout());
     }

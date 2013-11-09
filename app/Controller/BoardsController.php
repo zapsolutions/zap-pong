@@ -5,13 +5,11 @@ App::uses('AppController', 'Controller');
  *
  * @property Player $Player
  */
-class BoardsController extends AppController
-{
+class BoardsController extends AppController {
 
 	public $uses = array('Game', 'User');
 
-	public function beforeFilter()
-	{
+	public function beforeFilter() {
 		parent::beforeFilter();
 	}
 
@@ -20,8 +18,7 @@ class BoardsController extends AppController
  *
  * @return void
  */
-	public function all()
-	{
+	public function all() {
 		$loggedIn = $this->Auth->user('id');
 
 		if ($loggedIn !== null) {
@@ -61,7 +58,6 @@ class BoardsController extends AppController
 		$this->set('title_for_layout', 'Leaderboard');
 		$this->set(compact('ratings', 'sinks', 'hits', 'games'));
 		$this->set('authenticated', $this->Auth->loggedIn());
-
 	}
 	
 }
