@@ -226,7 +226,7 @@ td.action {
 }
 
 tr.gold {
-	color: #FFD700;
+	color: #FF1E00;
 }
 
 .badge-silver {
@@ -234,7 +234,7 @@ tr.gold {
 }
 
 tr.silver {
-	color: #C0C0C0;
+	color: #FF1B00;
 }
 
 .badge-bronze {
@@ -242,7 +242,7 @@ tr.silver {
 }
 
 tr.bronze {
-	color: #CD7F32;
+	color: #00CCFF;
 }
 
 td.stinker img {
