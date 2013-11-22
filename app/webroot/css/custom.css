@@ -225,24 +225,12 @@ td.action {
 	background-color: #FFD700;
 }
 
-tr.gold {
-	color: #FF1E00;
-}
-
 .badge-silver {
 	background-color: #C0C0C0;
 }
 
-tr.silver {
-	color: #FF1B00;
-}
-
 .badge-bronze {
 	background-color: #CD7F32;
-}
-
-tr.bronze {
-	color: #00CCFF;
 }
 
 td.stinker img {
