@@ -20,7 +20,6 @@ class ApiController extends AppController
  * @return void
  */
 	public function alpha_omega() {
-
 		$champion = $this->User->find('all', array(
 			'conditions' => array('User.active' => 1),
 			'fields'     => array('name', 'wins', 'losses'),
@@ -39,7 +38,6 @@ class ApiController extends AppController
 		$data['Unchampion'] = $unchampion;
 		$this->set(compact('data'));
 		$this->autoLayout = false;
-		
 	}
 
 }
