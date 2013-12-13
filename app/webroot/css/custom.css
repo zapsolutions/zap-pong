@@ -253,6 +253,27 @@ td.stinker img {
 	font-weight: bold;
 }
 
+#jarvis {
+	opacity: 0.8;
+	cursor: pointer;
+	border: 0;
+	font-size: 14px;
+	width: 14px;
+	padding: 9px;
+	height: 14px;
+	border-radius: 50%;
+	box-shadow: 0 0 4px #222;
+	float: right;
+}
+
+#jarvis:hover {
+	opacity: 1;
+}
+
+#jarvis:focus {
+	outline: none;
+}
+
 @media (min-width: 979px) {
 	form input[type="text"], form input[type="email"] {
 		width: 77%;

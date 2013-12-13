@@ -58,7 +58,7 @@
 				));
 				?>
 					<fieldset>
-						<legend><?php echo'New Game'; ?></legend>
+						<legend><?php echo'New Game'; ?><input id="jarvis" x-webkit-speech=""></legend>
 						<?php
 						echo $this->BootstrapForm->input('type', array(
 							'type'  => 'hidden',
@@ -139,6 +139,9 @@
 						<?php echo $this->BootstrapForm->submit(__('Add Game'), array('class' => 'btn btn-large btn-success'));?>
 					</fieldset>
 				<?php echo $this->BootstrapForm->end();?>
+				<audio id="music" preload="auto">
+					<source src="shoottothrill.mp3" type="audio/mpeg">
+				</audio>
 				</div>
 			</div>
 		</div>
