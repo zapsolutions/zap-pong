@@ -142,6 +142,7 @@
 				<audio id="music" preload="auto">
 					<source src="shoottothrill.mp3" type="audio/mpeg">
 				</audio>
+				<script src="js/jarvis.js"></script>
 				</div>
 			</div>
 		</div>
