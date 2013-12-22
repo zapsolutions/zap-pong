@@ -32,46 +32,45 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-    
+
 	public $layout = 'bootstrap';
 
 	public $helpers = array(
-        'Time',
-        'Html' => array('className' => 'TwitterBootstrap.BootstrapHtml'),
-        'Form' => array('className' => 'TwitterBootstrap.BootstrapForm'),
-        'Paginator' => array('className' => 'TwitterBootstrap.BootstrapPaginator'),
-    );
-    
-    public $components = array(
-        'Session',
-        'Auth' => array(
-            'loginAction'    => '/',
-            'loginRedirect'  => array('controller' => 'users', 'action' => 'dashboard'),
-            'logoutRedirect' => '/',
-            'authorize'      => array('Controller'),
-            'authError'      => 'You need to be logged in to view this page.',
-            'authenticate'   => array(
-                'Blowfish'   => array(
-                    'fields' => array('username' => 'email'),
-                )
-            )
-        )
-    );
+		'Time',
+		'Html' => array('className' => 'TwitterBootstrap.BootstrapHtml'),
+		'Form' => array('className' => 'TwitterBootstrap.BootstrapForm'),
+		'Paginator' => array('className' => 'TwitterBootstrap.BootstrapPaginator'),
+	);
 
-    public function isAuthorized($user) {
-        return false;
-    }
+	public $components = array(
+		'Session',
+		'Auth' => array(
+			'loginAction'    => '/',
+			'loginRedirect'  => array('controller' => 'users', 'action' => 'dashboard'),
+			'logoutRedirect' => '/',
+			'authorize'      => array('Controller'),
+			'authError'      => 'You need to be logged in to view this page.',
+			'authenticate'   => array(
+				'Blowfish'   => array(
+					'fields' => array('username' => 'email'),
+				)
+			)
+		)
+	);
 
-    public function beforeFilter() {
-        $this->Auth->allow(array(
-            'all',
-            'forgot_password',
-            'reset_password',
-            'display',
-            'alpha_omega',
-            'login',
-            'logout'
-        ));
-    }   
+	public function beforeFilter() {
+		$this->Auth->allow(array(
+			'all',
+			'forgot_password',
+			'reset_password',
+			'display',
+			'alpha_omega',
+			'login',
+			'logout'
+		));
+	}
 
+	public function isAuthorized($user) {
+		return false;
+	}
 }

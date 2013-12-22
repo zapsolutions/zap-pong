@@ -8,6 +8,12 @@ App::uses('AppController', 'Controller');
 class GamesController extends AppController {
 
 	public $uses = array('Game', 'User');
+	public $components = array('Security');
+
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$this->Security->csrfUseOnce = true;
+	}
 
 	public function isAuthorized($user) {
 		if (!empty($user)) {
@@ -62,5 +68,4 @@ class GamesController extends AppController {
 			$this->set(compact('users'));
 		}
 	}
-
 }
