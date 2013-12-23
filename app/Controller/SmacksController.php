@@ -63,5 +63,4 @@ class SmacksController extends AppController {
 		$this->autoLayout = false;
 		$this->set(compact('smacks'));
 	}
-
 }

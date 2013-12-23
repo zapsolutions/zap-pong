@@ -228,5 +228,4 @@ class UsersController extends AppController {
 		
 		$this->set(compact('user'));
 	}
-
 }

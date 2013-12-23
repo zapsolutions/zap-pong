@@ -59,5 +59,4 @@ class BoardsController extends AppController {
 		$this->set(compact('ratings', 'sinks', 'hits', 'games'));
 		$this->set('authenticated', $this->Auth->loggedIn());
 	}
-	
 }

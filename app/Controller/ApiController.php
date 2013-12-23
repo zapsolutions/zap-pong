@@ -5,8 +5,7 @@ App::uses('AppController', 'Controller');
  *
  * @property User $User
  */
-class ApiController extends AppController
-{
+class ApiController extends AppController {
 
 	public $uses = array('User');
 
@@ -39,5 +38,4 @@ class ApiController extends AppController
 		$this->set(compact('data'));
 		$this->autoLayout = false;
 	}
-
 }
