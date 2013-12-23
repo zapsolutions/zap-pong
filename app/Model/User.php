@@ -36,23 +36,23 @@ class User extends AppModel {
 		),
 		'password' => array(
 			'between' => array(
-                'rule'    => array('between', 5, 15),
-                'message' => 'Passwords must be between 5 and 15 characters.',
-            ),
+				'rule'    => array('between', 5, 15),
+				'message' => 'Passwords must be between 5 and 15 characters.',
+			),
 			'checkMatch' => array( 
-            	'rule' => 'confirmPassword', 
-             	'message' => 'Your passwords didn\'t match.',
-            )
+				'rule' => 'confirmPassword', 
+				'message' => 'Your passwords didn\'t match.',
+			)
 		),
 		'password_confirm' => array(
 			'between' => array(
-                'rule'    => array('between', 5, 15),
-                'message' => 'Passwords must be between 5 and 15 characters.',
-            ),
+				'rule'    => array('between', 5, 15),
+				'message' => 'Passwords must be between 5 and 15 characters.',
+			),
 			'checkMatch' => array( 
-            	'rule' => 'confirmPassword', 
-             	'message' => 'Your passwords didn\'t match.', 
-            )
+				'rule' => 'confirmPassword', 
+				'message' => 'Your passwords didn\'t match.', 
+			)
 		)
 	);
 
@@ -96,20 +96,19 @@ class User extends AppModel {
  * @var array
  */
 	public $actsAs = array(
-        'Upload.Upload' => array(
-            'avatar' => array(
-                'fields' => array('dir' => 'avatar_dir'),
-                'thumbnailSizes' => array(
-                	'thumb' => '[50x50]',
-                	'profile' => '[200x200]'
-                )
-            )
-        ),
-        'Tags.Taggable' => array()
-    );
+		'Upload.Upload' => array(
+			'avatar' => array(
+				'fields' => array('dir' => 'avatar_dir'),
+				'thumbnailSizes' => array(
+					'thumb' => '[50x50]',
+					'profile' => '[200x200]'
+				)
+			)
+		),
+	);
 
-    public $virtualFields = array(
-    	'total_games' => 'User.wins + User.losses'
+	public $virtualFields = array(
+		'total_games' => 'User.wins + User.losses'
 	);
 
 /**
@@ -117,13 +116,13 @@ class User extends AppModel {
  * @param array $options
  * @return bool
  */
-    public function beforeSave($options = array()) {
-        if (isset($this->data['User']['password'])) {
-            $hash = Security::hash($this->data['User']['password'], 'blowfish');
-            $this->data['User']['password'] = $hash;
-        }
-        return true;
-    }
+	public function beforeSave($options = array()) {
+		if (isset($this->data['User']['password'])) {
+			$hash = Security::hash($this->data['User']['password'], 'blowfish');
+			$this->data['User']['password'] = $hash;
+		}
+		return true;
+	}
 
 /**
  * sendResetEmail method
@@ -138,7 +137,7 @@ class User extends AppModel {
 				'secret' => $secret
 			))
 			->template('reset_password')
-    		->emailFormat('html')
+			->emailFormat('html')
 			->sender('no-replay@pong.zapsolutions.com', 'ZAP Pong')
 			->from(array('no-replay@pong.zapsolutions.com' => 'ZAP Pong'))
 			->to($email_address)
@@ -152,10 +151,10 @@ class User extends AppModel {
  * @return void
  */
     public function confirmPassword() { 
-    	if ($this->data[$this->alias]['password'] == $this->data[$this->alias]['password_confirm']) {
-    		return true;
-    	}
-    	return false;
+		if ($this->data[$this->alias]['password'] == $this->data[$this->alias]['password_confirm']) {
+			return true;
+		}
+		return false;
     }
     
 /**
@@ -247,5 +246,4 @@ class User extends AppModel {
 			$this->saveField('streak', $streak);
 		}
 	}
-
 }

@@ -27,5 +27,4 @@ class Game extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-	
 }
