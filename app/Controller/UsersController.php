@@ -64,7 +64,7 @@ class UsersController extends AppController {
 					)
 				);
 		
-				$this->redirect(array('action' => 'dashboard'));
+				return $this->redirect(array('action' => 'dashboard'));
 			} else {
 				$this->Session->setFlash(
 					'Something went wrong with updating your account info. :-(',
@@ -75,7 +75,7 @@ class UsersController extends AppController {
 					)
 				);
 		
-				$this->redirect(array('action' => 'dashboard'));
+				return $this->redirect(array('action' => 'dashboard'));
 			}
 		} 
 	}
@@ -99,7 +99,7 @@ class UsersController extends AppController {
 					)
 				);
 		
-				$this->redirect(array('action' => 'random_teams'));
+				return $this->redirect(array('action' => 'random_teams'));
 			}
 		
 			$players = $this->request->data;
@@ -149,7 +149,7 @@ class UsersController extends AppController {
 					)
 				);
 		
-				$this->redirect(array('controller' => 'users', 'action' => 'forgot_password'));
+				return $this->redirect(array('controller' => 'users', 'action' => 'forgot_password'));
 			}
 		
 			App::uses('String', 'Utility');
@@ -167,7 +167,7 @@ class UsersController extends AppController {
 			$this->Token->save($newToken);
 			$tokenID = $this->Token->id;
 			$this->User->sendResetEmail($tokenID, $secretToken, $data['User']['email']);
-			$this->redirect(array('controller' => 'pages', 'action' => 'reset'));
+			return $this->redirect(array('controller' => 'pages', 'action' => 'reset'));
 		}
 	}
 
@@ -207,7 +207,7 @@ class UsersController extends AppController {
 					)
 				);
 		
-				$this->redirect('/');
+				return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(
 					'There was a problem updating your password.',

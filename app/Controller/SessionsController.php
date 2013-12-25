@@ -20,10 +20,10 @@ class SessionsController extends AppController {
 					'plugin' => 'TwitterBootstrap',
 					'class' => 'alert-success'
 				));
-				$this->redirect($this->Auth->loginRedirect);
+				return $this->redirect($this->Auth->loginRedirect);
 			} else {
 				$this->Session->setFlash('Invalid login details, please try again.');
-				$this->redirect(array('controller' => 'pages', 'action' => 'display', 'goofed'));
+				return $this->redirect(array('controller' => 'pages', 'action' => 'display', 'goofed'));
 			}
 		}
 		$this->set('title_for_layout', 'Login');
@@ -36,6 +36,6 @@ class SessionsController extends AppController {
  */
 	public function logout() {
 		$this->Session->destroy();
-		$this->redirect($this->Auth->logout());
+		return $this->redirect($this->Auth->logout());
 	}
 }

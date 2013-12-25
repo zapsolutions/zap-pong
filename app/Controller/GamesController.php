@@ -48,7 +48,7 @@ class GamesController extends AppController {
 					)
 				);
 			
-				$this->redirect('/');
+				return $this->redirect('/');
 			} else {
 				$this->Session->setFlash(
 					__('The %s could not be saved. Please, try again. :(', __('game')),

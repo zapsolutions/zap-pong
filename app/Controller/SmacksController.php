@@ -32,7 +32,7 @@ class SmacksController extends AppController {
 					)
 				);
 			
-				$this->redirect('/dashboard');
+				return $this->redirect('/dashboard');
 			} else {
 				$this->Session->setFlash(
 					'Your smack talk could not be saved. Please, try again.',
@@ -43,7 +43,7 @@ class SmacksController extends AppController {
 					)
 				);
 			
-				$this->redirect('/dashboard');
+				return $this->redirect('/dashboard');
 			}
 		}
 	}
