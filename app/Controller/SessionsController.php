@@ -18,7 +18,7 @@ class SessionsController extends AppController {
 				$user = $this->Auth->user();
 				$this->Session->setFlash("Welcome {$user['name']}, you are now logged in!", 'alert', array(
 					'plugin' => 'TwitterBootstrap',
-					'class' => 'alert-success'
+					'class'  => 'alert-success'
 				));
 				return $this->redirect($this->Auth->loginRedirect);
 			} else {

@@ -28,7 +28,7 @@ class SmacksController extends AppController {
 					'alert',
 					array(
 						'plugin' => 'TwitterBootstrap',
-						'class' => 'alert-success'
+						'class'  => 'alert-success'
 					)
 				);
 			
@@ -39,7 +39,7 @@ class SmacksController extends AppController {
 					'alert',
 					array(
 						'plugin' => 'TwitterBootstrap',
-						'class' => 'alert-error'
+						'class'  => 'alert-error'
 					)
 				);
 			

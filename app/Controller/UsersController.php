@@ -60,7 +60,7 @@ class UsersController extends AppController {
 					'alert',
 					array(
 						'plugin' => 'TwitterBootstrap',
-						'class' => 'alert-success'
+						'class'  => 'alert-success'
 					)
 				);
 		
@@ -71,7 +71,7 @@ class UsersController extends AppController {
 					'alert',
 					array(
 						'plugin' => 'TwitterBootstrap',
-						'class' => 'alert-error'
+						'class'  => 'alert-error'
 					)
 				);
 		
@@ -95,7 +95,7 @@ class UsersController extends AppController {
 					'alert',
 					array(
 						'plugin' => 'TwitterBootstrap',
-						'class' => 'alert-error'
+						'class'  => 'alert-error'
 					)
 				);
 		
@@ -121,7 +121,7 @@ class UsersController extends AppController {
 		));
 		
 		$users = $this->User->find('list', array(
-			'order' => array('User.name ASC'),
+			'order'  => array('User.name ASC'),
 			'fields' => array('User.name')
 		));
 		
@@ -145,7 +145,7 @@ class UsersController extends AppController {
 					'alert',
 					array(
 						'plugin' => 'TwitterBootstrap',
-						'class' => 'alert-error'
+						'class'  => 'alert-error'
 					)
 				);
 		
@@ -158,8 +158,8 @@ class UsersController extends AppController {
 		
 			$newToken = array(
 				'Token' => array(
-					'secret' => $secretToken,
-					'model' => 'User',
+					'secret'      => $secretToken,
+					'model'       => 'User',
 					'foreign_key' => $exists['User']['id']
 				)
 			);
@@ -183,9 +183,9 @@ class UsersController extends AppController {
 		
 		$valid_token = $this->Token->find('first', array(
 			'conditions' => array(
-				'Token.id'     => $id,
-				'Token.secret' => $secret,
-				'Token.model'  => 'User',
+				'Token.id'                      => $id,
+				'Token.secret'                  => $secret,
+				'Token.model'                   => 'User',
 				'Token.created BETWEEN ? AND ?' => array($minusOneHour, $nowHour)
 			)
 		));
@@ -203,7 +203,7 @@ class UsersController extends AppController {
 					'alert',
 					array(
 						'plugin' => 'TwitterBootstrap',
-						'class' => 'alert-success'
+						'class'  => 'alert-success'
 					)
 				);
 		
@@ -214,7 +214,7 @@ class UsersController extends AppController {
 					'alert',
 					array(
 						'plugin' => 'TwitterBootstrap',
-						'class' => 'alert-error'
+						'class'  => 'alert-error'
 					)
 				);
 			}	

@@ -55,7 +55,7 @@ class GamesController extends AppController {
 					'alert',
 					array(
 						'plugin' => 'TwitterBootstrap',
-						'class' => 'alert-error'
+						'class'  => 'alert-error'
 					)
 				);
 			}
