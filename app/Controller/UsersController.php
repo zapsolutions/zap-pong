@@ -89,7 +89,6 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
 			$numSelected = count($this->request->data['User']);
 			if ($numSelected !== 4) {
-		
 				$this->Session->setFlash(
 					'You\'ve selected too few or too many players. :-(',
 					'alert',
