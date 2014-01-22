@@ -8,11 +8,11 @@ App::uses('AppController', 'Controller');
 class GamesController extends AppController {
 
 	public $uses = array('Game', 'User');
-	//public $components = array('Security');
+	public $components = array('Security');
 
 	public function beforeFilter() {
-		//parent::beforeFilter();
-		//$this->Security->csrfUseOnce = true;
+		parent::beforeFilter();
+		$this->Security->csrfUseOnce = true;
 	}
 
 	public function isAuthorized($user) {
