@@ -24,6 +24,24 @@ class UsersController extends AppController {
  * @return void
  */
 	public function dashboard() {
+		// CHECK IF A GAME WAS PASSED TO DASHBOARD
+		if($this->request->is('post')) {
+			$teams = unserialize($this->request->data['Player']['teams']);
+			$winner = $this->request->data['Player']['winner'];
+
+			unset($this->request->data['Player']);
+			
+			foreach($teams as $cnt => $team) {
+				if($cnt == $winner) {
+					$this->request->data['Player'][0]['user_id'] = $team[0];
+					$this->request->data['Player'][1]['user_id'] = $team[1];
+				} else {
+					$this->request->data['Player'][2]['user_id'] = $team[0];
+					$this->request->data['Player'][3]['user_id'] = $team[1];
+				}
+			}
+		}
+
 		$user = $this->User->find('first', array(
 			'conditions' => array(
 				'User.id' => $this->Auth->user('id')
@@ -42,7 +60,7 @@ class UsersController extends AppController {
 			'limit' => 5
 		));
 		
-		$this->request->data = $user;
+		//$this->request->data = $user;
 		$this->set('title_for_layout', 'Dashboard');
 		$this->set(compact('user', 'users', 'smacks', 'user_smacks'));
 	}

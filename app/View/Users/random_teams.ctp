@@ -1,23 +1,57 @@
+<script>
+function showBtn(el) {
+	$(el).show();
+}
+</script>
 <div id="dash-row" class="row-fluid">
 	<?php echo $this->element('player_card'); ?>
 	<div class="span8 dash-box">
 		<div class="span-padding">
-			<?php
+			<?php 
 			if (isset($selection)) {
+				echo $this->BootstrapForm->create('Player', array('url' => array('controller' => 'users', 'action' => 'dashboard')));
+				echo $this->BootstrapForm->hidden('game_ready', array('value' => 1));
+
 				echo '<legend>Teams are...</legend>';
 				$i = 0;
+				$teams = array();
+				echo '<div class="row-fluid"><div class="span6">';
 				foreach ($selection as $player) {
-					echo '<div class="row-fluid">';
-					echo '<div class="span12">';
+					if(($i+1) %2) {
+						echo '<div class="row-fluid"><div class="span12">';
+					}
 					if ($i === 0 || $i === 1) {
 						$team = 1;
+						if(!isset($teams[$team])) $teams[$team] = array();
 					} else {
 						$team = 2;
+						if(!isset($teams[$team])) $teams[$team] = array();
 					}
+					array_push($teams[$team], $player['User']['id']);
+					echo '<div class="row-fluid"><div class="span12">';
 					echo '<strong>Team ' . $team . ':</strong> ' . $player['User']['name'];
 					echo '</div></div>';
+
+					if($i == 1 || $i ==3) {
+						echo '</div></div>';
+					}
 					$i++;
 				}
+				echo '</div>';
+				echo '<div class="span6">';
+				echo $this->BootstrapForm->hidden('teams', array('value' => serialize($teams)));
+				echo $this->BootstrapForm->input('winner', array(
+					'label' => $this->Html->tag('strong', 'Winner'), 
+					'type' => 'radio', 
+					'options' => array(1 => 'Team 1', 2 => 'Team 2'),
+					'onClick' => 'showBtn(".js-complete-game")'));
+				echo '</div></div>';
+				echo $this->BootstrapForm->submit('Next...', array(
+					'div' => false,
+					'class' => 'btn btn-large btn-success js-complete-game',
+					'style' => 'display: none;'
+				));
+				echo $this->BootstrapForm->end();
 			}
 			?>
 				<?php
