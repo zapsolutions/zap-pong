@@ -60,7 +60,6 @@ class UsersController extends AppController {
 			'limit' => 5
 		));
 		
-		//$this->request->data = $user;
 		$this->set('title_for_layout', 'Dashboard');
 		$this->set(compact('user', 'users', 'smacks', 'user_smacks'));
 	}
