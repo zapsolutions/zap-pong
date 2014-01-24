@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
 class GamesController extends AppController {
 
 	public $uses = array('Game', 'User');
-	public $components = array('Security');
+	//public $components = array('Security');
 
 	public function beforeFilter() {
 		parent::beforeFilter();
