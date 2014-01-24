@@ -12,7 +12,7 @@ class GamesController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Security->csrfUseOnce = true;
+		//$this->Security->csrfUseOnce = true;
 	}
 
 	public function isAuthorized($user) {
