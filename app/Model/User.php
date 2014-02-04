@@ -138,8 +138,8 @@ class User extends AppModel {
 			))
 			->template('reset_password')
 			->emailFormat('html')
-			->sender('no-replay@pong.zapsolutions.com', 'ZAP Pong')
-			->from(array('no-replay@pong.zapsolutions.com' => 'ZAP Pong'))
+			->sender('no-reply@pong.zapsolutions.com', 'ZAP Pong')
+			->from(array('no-reply@pong.zapsolutions.com' => 'ZAP Pong'))
 			->to($email_address)
 			->subject('ZAP Pong Password Reset')
 			->send();
