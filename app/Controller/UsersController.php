@@ -59,8 +59,7 @@ class UsersController extends AppController {
 			'order' => 'Smack.created DESC',
 			'limit' => 5
 		));
-		
-		$this->request->data = $user;
+		$this->request->data = array_merge($this->request->data, $user);
 		$this->set('title_for_layout', 'Dashboard');
 		$this->set(compact('user', 'users', 'smacks', 'user_smacks'));
 	}
