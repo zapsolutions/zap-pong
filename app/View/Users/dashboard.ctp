@@ -26,7 +26,7 @@
 							'div' => false,
 							'before'  => '<div class="input-space input-prepend"><span class="add-on">Name</span>',
 							'after' => '</div>',
-							'label' => false
+							'label' => false,
 							'value' => $user['User']['name']
 						));
 						echo $this->BootstrapForm->input('alias', array(
