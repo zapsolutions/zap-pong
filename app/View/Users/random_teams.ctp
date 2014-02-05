@@ -20,7 +20,7 @@
 					} else {
 						$team = 2;
 					}
-					$teams[$team][] = $player['User']['id']);
+					$teams[$team][] = $player['User']['id'];
 					echo '<div class="row-fluid"><div class="span12">';
 					echo '<strong>Team ' . $team . ':</strong> ' . $player['User']['name'];
 					echo '</div></div>';
