@@ -18,7 +18,8 @@
 							'div' => false,
 							'before'  => '<div class="input-space input-prepend"><span class="add-on">Email</span>',
 							'after' => '</div>',
-							'label' => false
+							'label' => false,
+							'value' => $user['User']['email']
 						));
 						echo $this->BootstrapForm->input('name', array(
 							'required' => 'required',
@@ -26,13 +27,15 @@
 							'before'  => '<div class="input-space input-prepend"><span class="add-on">Name</span>',
 							'after' => '</div>',
 							'label' => false
+							'value' => $user['User']['name']
 						));
 						echo $this->BootstrapForm->input('alias', array(
 							'required' => 'required',
 							'div' => false,
 							'before'  => '<div class="input-space input-prepend"><span class="add-on">Alias</span>',
 							'after' => '</div>',
-							'label' => false
+							'label' => false,
+							'value' => $user['User']['alias']
 						));
 						echo $this->BootstrapForm->input('avatar', array(
 							'type' => 'file',

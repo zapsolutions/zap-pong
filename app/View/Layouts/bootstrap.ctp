@@ -72,6 +72,6 @@ $cakeDescription = __d('ZAP Pong', 'ZAP Pong');
 			</div>
 		</div>
 	</div>
-	<?php //echo $this->element('sql_dump'); ?>
+	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
