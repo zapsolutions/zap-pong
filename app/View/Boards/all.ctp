@@ -165,9 +165,9 @@
 
 <script type="text/javascript">
 	$('.img-modal').on('click', function(e) {
-	    e.preventDefault();
-	    $("#modal-img-target").attr("src", this);
-	    $('#modal').modal('show');
+		e.preventDefault();
+		$("#modal-img-target").attr("src", this);
+		$('#modal').modal('show');
 	});
 </script>
 
