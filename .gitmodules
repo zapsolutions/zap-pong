@@ -10,3 +10,6 @@
 [submodule "app/Plugin/Tags"]
 	path = app/Plugin/Tags
 	url = git://github.com/CakeDC/tags.git
+[submodule "app/Plugin/Migrations"]
+	path = app/Plugin/Migrations
+	url = https://github.com/CakeDC/migrations.git
