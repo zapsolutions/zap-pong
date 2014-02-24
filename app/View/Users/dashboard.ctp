@@ -135,6 +135,7 @@
 							'empty'   => 'Action',
 							'options' => array('sink' => 'Sink', 'hit' => 'Hit', 'tk' => 'Team Kill')
 						));
+						echo $this->BootstrapForm->input('reuse_teams', array('label' => 'Start game with same teams?', 'type' => 'checkbox', 'value' => 1));
 						?>
 						<?php echo $this->BootstrapForm->submit(__('Add Game'), array('class' => 'btn btn-large btn-success'));?>
 					</fieldset>
