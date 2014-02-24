@@ -96,7 +96,7 @@ class UsersController extends AppController {
 /**
  * Generates random teams
  */
-	public function random_teams() {
+	public function random_teams($players = null) {
 		if ($this->request->is('post')) {
 			$numSelected = count($this->request->data['User']);
 			if ($numSelected !== 4) {
@@ -120,6 +120,15 @@ class UsersController extends AppController {
 				),
 				'order' => 'RAND()'
 			));
+		
+			$this->set(compact('selection'));
+		} elseif(!empty($players)) {
+			$players = unserialize(urldecode($players));
+
+			$selection = array();
+			foreach($players as $player) {
+				array_push($selection, $this->User->findById($player));
+			}
 		
 			$this->set(compact('selection'));
 		}
