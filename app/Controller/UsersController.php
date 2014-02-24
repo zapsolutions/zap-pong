@@ -19,12 +19,10 @@ class UsersController extends AppController {
 	}
 
 /**
- * profile method
- *
- * @return void
+ * 
  */
 	public function dashboard() {
-		// CHECK IF A GAME WAS PASSED TO DASHBOARD
+		// Check if a game was POSTed
 		if($this->request->is('post')) {
 			$teams = unserialize($this->request->data['Player']['teams']);
 			$winner = $this->request->data['Player']['winner'];
@@ -65,9 +63,7 @@ class UsersController extends AppController {
 	}
 
 /**
- * edit method
- *
- * @return void
+ * Edit user's account information
  */
 	public function edit() {
 		if ($this->request->is('post') || $this->request->is('put')) {
@@ -98,9 +94,7 @@ class UsersController extends AppController {
 	}
 
 /**
- * random_teams method
- *
- * @return void
+ * Generates random teams
  */
 	public function random_teams() {
 		if ($this->request->is('post')) {
@@ -146,9 +140,7 @@ class UsersController extends AppController {
 	}
 
 /**
- * forgot_password method
- *
- * @return void
+ * Starts "forgot your password?" process
  */
 	public function forgot_password() {
 		if ($this->request->is('post')) {
@@ -188,9 +180,7 @@ class UsersController extends AppController {
 	}
 
 /**
- * reset_password method
- *
- * @return void
+ * Allows user to reset password with correct token information
  */
 	public function reset_password($id = null, $secret = null) {
 		$minusOneHour = date('Y-m-d H:i:s', strtotime('-1 hour', time()));

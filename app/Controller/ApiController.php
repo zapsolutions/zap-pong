@@ -14,9 +14,8 @@ class ApiController extends AppController {
 	}
 
 /**
- * alpha_and_omega method
- *
- * @return void
+ * Returns a JSON string of the highest and lowest rated playerse based
+ * on ranking
  */
 	public function alpha_omega() {
 		$champion = $this->User->find('all', array(

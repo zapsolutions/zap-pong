@@ -14,9 +14,7 @@ class BoardsController extends AppController {
 	}
 
 /**
- * all method
- *
- * @return void
+ * Finds all players sorted by rating for the leaderboard
  */
 	public function all() {
 		$loggedIn = $this->Auth->user('id');

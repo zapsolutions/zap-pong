@@ -21,9 +21,7 @@ class GamesController extends AppController {
 	}
 
 /**
- * add method
- *
- * @return void
+ * Adds a game
  */
 	public function add() {
 		if ($this->request->is('post')) {

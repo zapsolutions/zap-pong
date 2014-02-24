@@ -15,9 +15,7 @@ class SmacksController extends AppController {
 	}
 
 /**
- * add method
- *
- * @return void
+ * Adds a smack message
  */
 	public function add() {
 		if ($this->request->is('post')) {
@@ -49,9 +47,7 @@ class SmacksController extends AppController {
 	}
 
 /**
- * load_more method
- *
- * @return void
+ * Renders a JSON string of an additional 5 smack messages
  */
 	public function load_more($offset = null) {
 		$this->Smack->recursive = 1;

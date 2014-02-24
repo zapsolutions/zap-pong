@@ -8,9 +8,7 @@ App::uses('AppController', 'Controller');
 class SessionsController extends AppController {
 
 /**
- * login method
- *
- * @return void
+ * User login
  */
 	public function login() {
 		if ($this->request->is('post')) {
@@ -30,9 +28,7 @@ class SessionsController extends AppController {
 	}
 
 /**
- * logout method
- *
- * @return void
+ * User logout
  */
 	public function logout() {
 		$this->Session->destroy();
