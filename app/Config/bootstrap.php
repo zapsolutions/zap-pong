@@ -111,4 +111,3 @@ CakeLog::config('error', array(
 CakePlugin::load('Upload');
 CakePlugin::load('TwitterBootstrap');
 CakePlugin::load('Migrations');
-//CakePlugin::load('Tags');
