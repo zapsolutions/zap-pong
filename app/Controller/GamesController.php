@@ -44,12 +44,12 @@ class GamesController extends AppController {
 					)
 				);
 
-				if(array_key_exists('reuse_teams', $this->request->data['Game']) && (boolean)$this->request->data['Game']['reuse_teams']) {
+				if(array_key_exists('reuse_teams', $data['Game']) && (boolean)$data['Game']['reuse_teams']) {
 					$teams = array(
-						$this->request->data['Player']['0']['user_id'],
-						$this->request->data['Player']['1']['user_id'],
-						$this->request->data['Player']['2']['user_id'],
-						$this->request->data['Player']['3']['user_id']
+						$data['Player']['0']['user_id'],
+						$data['Player']['1']['user_id'],
+						$data['Player']['2']['user_id'],
+						$data['Player']['3']['user_id']
 					);
 
 					return $this->redirect(array('controller' => 'users', 'action' => 'random_teams', urlencode(serialize($teams))));
