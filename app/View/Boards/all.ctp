@@ -62,24 +62,29 @@
 					} else {
 						echo '<td class="mobile ' . $color . '">' . $rating['User']['name'] . '</td>';
 					}
-					echo '<td>' . $rating['User']['wins'] . '</td>';
-					echo '<td>' . $rating['User']['losses'] . '</td>';
-					echo '<td>' . $rating['User']['total_games'] . '</td>';
-					$win_percentage = ($rating['User']['wins'] / $rating['User']['total_games']) * 100;
-					echo '<td>' . $this->Number->toPercentage($win_percentage) . '</td>';
-					echo '<td>' . $rating['User']['sinks'] . '</td>';
-					echo '<td>' . $rating['User']['hits'] . '</td>';
-					echo '<td>' . $rating['User']['tks'] . '</td>';
-					echo '<td>' . $rating['User']['decay'] . '</td>';
-					$action_percentage = (($rating['User']['sinks'] + $rating['User']['hits']) / $rating['User']['total_games']) * 100;
-					echo '<td>' . $this->Number->toPercentage($action_percentage) . '</td>';
+					?>
+					<?php
+					<td><?= $rating['User']['wins'] ?></td>
+					<td><?= $rating['User']['losses'] ?></td>
+					<td><?= $rating['User']['total_games'] ?></td>
+					<?php $winPercentage = ($rating['User']['wins'] / $rating['User']['total_games']) * 100; ?>
+					<td><?= $this->Number->toPercentage($winPercentage) ?></td>
+					<td><?= $rating['User']['sinks'] ?></td>
+					<td><?= $rating['User']['hits'] ?></td>
+					<td><?= $rating['User']['tks'] ?></td>
+					<td><?= $rating['User']['decay'] ?></td>
+					<?php $actionPercentage = (($rating['User']['sinks'] + $rating['User']['hits']) / $rating['User']['total_games']) * 100; ?>
+					<td><?= $this->Number->toPercentage($actionPercentage) ?></td>
+					<?php
 					if ($rating['User']['streak'] > 0) {
 						$streak = '+' . $rating['User']['streak'];
 					} else {
 						$streak = $rating['User']['streak'];
 					}
-					echo '<td>' . $streak . '</td>';
-					echo '</tr>';
+					?>
+					<td><?= $streak ?></td>
+					</tr>
+					<?php
 					$rank++;
 				}
 				?>
