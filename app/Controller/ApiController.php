@@ -34,7 +34,6 @@ class ApiController extends AppController {
 
 		$data['Champion'] = $champion;
 		$data['Unchampion'] = $unchampion;
-		$this->set(compact('data'));
-		$this->autoLayout = false;
+		$this->set('_serialize', $data);
 	}
 }
