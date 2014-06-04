@@ -56,7 +56,6 @@ class SmacksController extends AppController {
 			'limit' => 5,
 			'offset' => $offset
 		));
-		$this->autoLayout = false;
-		$this->set(compact('smacks'));
+		$this->set('_serialize' , $smacks);
 	}
 }

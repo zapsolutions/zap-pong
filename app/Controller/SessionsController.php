@@ -1,10 +1,10 @@
 <?php
 App::uses('AppController', 'Controller');
+
 /**
  *
  * Controller to handle user sessions
  */
-
 class SessionsController extends AppController {
 
 /**
