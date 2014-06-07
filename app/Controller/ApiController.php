@@ -14,22 +14,20 @@ class ApiController extends AppController {
 	}
 
 /**
- * Returns a JSON string of the highest and lowest rated playerse based
+ * Returns a JSON string of the highest and lowest rated players based
  * on ranking
  */
 	public function alpha_omega() {
-		$champion = $this->User->find('all', array(
+		$champion = $this->User->find('first', array(
 			'conditions' => array('User.active' => 1),
 			'fields'     => array('name', 'wins', 'losses'),
 			'order'      => array('User.rating DESC'),
-			'limit'      => 1
 		));
 
-		$unchampion = $this->User->find('all', array(
-			'conditions' => array('User.active' => 1, 'User.losses >=' => 1),
+		$unchampion = $this->User->find('first', array(
+			'conditions' => array('User.active' => 1),
 			'fields'     => array('name', 'wins', 'losses'),
 			'order'      => array('User.rating ASC'),
-			'limit'      => 1
 		));
 
 		$data['Champion'] = $champion;
